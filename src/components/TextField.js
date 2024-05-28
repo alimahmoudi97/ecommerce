@@ -9,8 +9,8 @@ function TextField({
   placeholder = "",
 }) {
   return (
-    <div className="flex flex-col gap-8 mb-4">
-      <label htmlFor={name} className="text-2xl md:text-3xl">
+    <div className="flex flex-col gap-2 mb-4">
+      <label htmlFor={name} className="text-xl">
         {lable}
       </label>
       <input

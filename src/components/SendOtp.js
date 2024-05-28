@@ -4,19 +4,29 @@ import { CiEdit } from "react-icons/ci";
 import { BsArrowRight } from "react-icons/bs";
 import { checkOtp } from "@/services/authService";
 import { useRouter } from "next/navigation";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 function SendOtp({ onStep, phoneNumber, setPhoneNumber }) {
   const router = useRouter();
   const [otp, setOtp] = useState("");
 
+  const { mutateAsync } = useMutation({
+    mutationFn: checkOtp,
+    onSuccess: (data) => {
+      toast.success(data.message);
+      console.log(data);
+    },
+    onError: (err) => toast.error(err.response.data.message),
+  });
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await checkOtp({
+    const user = await mutateAsync({
       phoneNumber,
       otp,
     });
     if (!user.isActive) router.push("/complete-profile");
-    console.log("user:", user);
   };
 
   const handleOtp = (code) => {

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const { Container } = require("postcss");
 const { fontFamily } = require("tailwindcss/defaultTheme");
 
 function withOpacity(variableName) {

@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import vazirFont from "@/constants/localFonts";
 import { Toaster } from "react-hot-toast";
+import Providers from "./Providers";
+import HeaderApp from "@/components/HeaderApp";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +18,13 @@ export default function RootLayout({ children }) {
       <body className={`${vazirFont.variable} font-sans`}>
         <Toaster
           containerStyle={{
-            fontSize: "1.6rem",
+            fontSize: "1.2rem",
           }}
         />
-        {children}
+        <Providers>
+          <HeaderApp />
+          {children}
+        </Providers>
       </body>
     </html>
   );

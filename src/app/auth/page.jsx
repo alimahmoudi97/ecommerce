@@ -16,7 +16,7 @@ function AuthPage() {
     setPhoneNumber(data);
   };
   return (
-    <div className="w-full md:max-w-[40rem] mx-auto">
+    <div className="w-full md:max-w-[30rem] mx-auto">
       {step == 0 ? (
         <GetOtp
           onStep={handleStep}
