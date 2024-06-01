@@ -1,24 +1,36 @@
 "use client";
 
+import Loading from "@/components/Loading";
 import Table from "@/components/Table";
 import { useUser } from "@/hooks/useUser";
-import { getUserProfile } from "@/services/userService";
+import { getAllPayments } from "@/services/paymentService";
+import {
+  toPersianNumbersWithComma,
+  toPersianNumbers,
+} from "@/utils/toPersianNumbers";
 import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
 
 function ProfilePage() {
-  const { user, isLoading } = useUser();
+  const { profile, isLoading } = useUser();
+
+  const { data, isLoading: loadingPayments } = useQuery({
+    queryKey: ["payments"],
+    queryFn: getAllPayments,
+  });
 
   const handleClick = () => {
-    console.log(user);
+    console.log(data.payments);
   };
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading || loadingPayments) return <Loading />;
 
   return (
-    <>
+    <div>
       <h1 className="text-2xl font-bold">سلام ! خوش آمدید!</h1>
       <span className="text-xl">تاریخ پیوستن</span>
+      <button className="btn btn--primary" onClick={handleClick}>
+        get User
+      </button>
       {/* Table sections */}
 
       <Table>
@@ -32,27 +44,26 @@ function ProfilePage() {
           <th>وضعیت</th>
         </Table.Header>
         <Table.Body>
-          <Table.Row>
-            <td>1</td>
-            <td> 1548651548</td>
-            <td>خرید PS5</td>
-            <td>PS5</td>
-            <td>5/000/000</td>
-            <td>1403/02/15</td>
-            <td>موفق</td>
-          </Table.Row>
-          <Table.Row>
-            <td>1</td>
-            <td> 1548651548</td>
-            <td>خرید PS5</td>
-            <td>PS5</td>
-            <td>5/000/000</td>
-            <td>1403/02/15</td>
-            <td>موفق</td>
-          </Table.Row>
+          {data.payments.map((item, index) => {
+            return (
+              <Table.Row key={item._id}>
+                <td>{index}</td>
+                <td> {toPersianNumbers(item.invoiceNumber)}</td>
+                <td>{item.description}</td>
+                <td>
+                  {item.cart.productDetail.map((product) => {
+                    return <span key={product._id}>{product.title}</span>;
+                  })}
+                </td>
+                <td>{toPersianNumbersWithComma(item.amount)}</td>
+                <td>{new Date(item.createdAt).toLocaleDateString("fa-IR")}</td>
+                <td className="success">{item.status}</td>
+              </Table.Row>
+            );
+          })}
         </Table.Body>
       </Table>
-    </>
+    </div>
   );
 }
 export default ProfilePage;

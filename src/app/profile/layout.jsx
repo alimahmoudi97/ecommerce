@@ -1,6 +1,4 @@
-import Sidbar from "@/components/Sidbar";
-import Table from "@/components/Table";
-import Link from "next/link";
+import Sidbar from "./Sidbar";
 
 function ProfileLayout({ children }) {
   return (

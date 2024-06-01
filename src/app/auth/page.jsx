@@ -1,7 +1,7 @@
 "use client";
 
-import GetOtp from "@/components/GetOtp";
-import SendOtp from "@/components/SendOtp";
+import GetOtp from "@/app/auth/GetOtp";
+import SendOtp from "@/app/auth/SendOtp";
 import { useState } from "react";
 
 function AuthPage() {

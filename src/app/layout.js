@@ -3,7 +3,7 @@ import "./globals.css";
 import vazirFont from "@/constants/localFonts";
 import { Toaster } from "react-hot-toast";
 import Providers from "./Providers";
-import HeaderApp from "@/components/HeaderApp";
+import HeaderApp from "./HeaderApp";
 
 const inter = Inter({ subsets: ["latin"] });
 

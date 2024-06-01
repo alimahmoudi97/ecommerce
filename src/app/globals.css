@@ -45,6 +45,10 @@
   .btn--primary {
     @apply bg-primary-900 text-white;
   }
+
+  .success {
+    @apply bg-success text-white text-sm;
+  }
 }
 
 * {

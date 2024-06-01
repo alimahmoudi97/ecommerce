@@ -15,7 +15,7 @@ function SendOtp({ onStep, phoneNumber, setPhoneNumber }) {
     mutationFn: checkOtp,
     onSuccess: (data) => {
       toast.success(data.message);
-      console.log(data);
+      // console.log(data);
     },
     onError: (err) => toast.error(err.response.data.message),
   });
@@ -27,6 +27,7 @@ function SendOtp({ onStep, phoneNumber, setPhoneNumber }) {
       otp,
     });
     if (!user.isActive) router.push("/complete-profile");
+    else router.push("/");
   };
 
   const handleOtp = (code) => {

@@ -1,5 +1,5 @@
 import { getOtp } from "@/services/authService";
-import TextField from "./TextField";
+import TextField from "../../components/TextField";
 import { useState } from "react";
 
 function GetOtp({ onStep, phoneNumber, setPhoneNumber }) {

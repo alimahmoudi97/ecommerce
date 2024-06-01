@@ -43,6 +43,7 @@ module.exports = {
           200: withOpacity("--color-secondary-200"),
           100: withOpacity("--color-secondary-100"),
           50: withOpacity("--color-secondary-50"),
+          0: withOpacity("--color-secondary-0"),
         },
         success: withOpacity("--color-success"),
         warning: withOpacity("--color-warning"),
@@ -53,5 +54,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

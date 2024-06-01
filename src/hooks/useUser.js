@@ -1,11 +1,12 @@
+import { getUserProfile } from "@/services/userService";
 import { useQuery } from "@tanstack/react-query";
 
 export function useUser(id) {
   const { data, isLoading } = useQuery({
     queryKey: ["user"],
-    // queryFn: getUserProfile,
+    queryFn: getUserProfile,
   });
-  const user = data?.data.user || {};
+  const profile = data?.data || {};
 
-  return { user, isLoading };
+  return { profile, isLoading };
 }
