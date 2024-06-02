@@ -1,13 +1,11 @@
 import Loading from "@/components/Loading";
 import RadioButton from "@/components/RadioButton";
+import { useCategory } from "@/hooks/useCategory";
 import { getCategories } from "@/services/categoryService";
 import { useQuery } from "@tanstack/react-query";
 
 function SideBar() {
-  const { data, isLoading } = useQuery({
-    queryKey: ["categories"],
-    queryFn: getCategories,
-  });
+  const { data, isLoading } = useCategory();
 
   if (isLoading) return <Loading />;
 

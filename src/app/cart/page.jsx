@@ -6,18 +6,12 @@ import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createPayment } from "@/services/paymentService";
 import Loading from "@/components/Loading";
+import { useCreatePayment } from "@/hooks/usePayment";
 
 function CartPage() {
-  const queryClient = useQueryClient();
   const { profile, isLoading } = useUser();
 
-  const { data, mutate, isPending, isError } = useMutation({
-    mutationFn: createPayment,
-    onSuccess: (data) => {
-      queryClient.invalidateQueries(["payments"]);
-      console.log("payment:", data);
-    },
-  });
+  const { data, mutate, isPending, isError } = useCreatePayment();
 
   const handlePayment = () => {
     mutate();

@@ -1,4 +1,5 @@
 import Loading from "@/components/Loading";
+import { useAddToCart } from "@/hooks/useCart";
 import { useUser } from "@/hooks/useUser";
 import { addToCart } from "@/services/cartService";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
@@ -10,24 +11,11 @@ function ProductCart({ product }) {
   const queryClient = useQueryClient();
   const { profile, isLoading } = useUser();
 
-  const { data, isPending, mutateAsync } = useMutation({
-    mutationKey: ["user"],
-    mutationFn: addToCart,
-    onSuccess: () => {
-      toast.success("به سبد محصولات اضافه شد");
-      queryClient.invalidateQueries(["user"]);
-    },
-  });
+  const { data, isPending, mutateAsync } = useAddToCart();
 
   const { cart } = profile;
 
   const handleClick = async () => {
-    // const foundProduct = cart?.products.find((pro) => pro._id === product._id);
-    // if (foundProduct) {
-    //   console.log("Found product:", foundProduct);
-    // } else {
-    //   console.log("Product not found in cart.");
-    // }
     const res = await mutateAsync({ productId: product._id });
     console.log(res);
   };

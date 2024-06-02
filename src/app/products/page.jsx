@@ -1,25 +1,15 @@
 "use client";
 
 import ProductCart from "@/app/cart/ProductCart";
-import { getProducts } from "@/services/productService";
-import { useQuery } from "@tanstack/react-query";
 import SideBar from "./SideBar";
 import Loading from "@/components/Loading";
+import { useProduct } from "@/hooks/useProduct";
 
 function ProductsList() {
   // TODO:move it on hook
-  const { data, isLoading } = useQuery({
-    queryKey: ["products"],
-    queryFn: getProducts,
-  });
+  const { data, isLoading } = useProduct();
 
   if (isLoading) return <Loading />;
-
-  // ---------------layout----------------
-  // |-----products-list----|---sidebar--|
-  // |----------------------|------------|
-  // |----------------------|------------|
-  // -------------------------------------
 
   return (
     <div className="container mx-auto">
@@ -40,3 +30,9 @@ function ProductsList() {
   );
 }
 export default ProductsList;
+
+// ---------------layout----------------
+// |-----products-list----|---sidebar--|
+// |----------------------|------------|
+// |----------------------|------------|
+// -------------------------------------

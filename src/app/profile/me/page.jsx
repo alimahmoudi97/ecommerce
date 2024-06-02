@@ -1,10 +1,8 @@
 "use client";
 
 import TextField from "@/components/TextField";
-import { updateUserProfile } from "@/services/userService";
-import { useMutation } from "@tanstack/react-query";
+import { useUpdateProfile } from "@/hooks/useUser";
 import { useState } from "react";
-import toast from "react-hot-toast";
 
 function PageInfoProfile() {
   const [name, setName] = useState("");
@@ -12,15 +10,10 @@ function PageInfoProfile() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
 
-  const { data, isPending, mutateAsync } = useMutation({
-    mutationFn: updateUserProfile,
-    onSuccess: () => {
-      toast.success("پروفایل با موفقیعت آپدیدت شد!");
-    },
-  });
+  const { data, isPending, mutateAsync } = useUpdateProfile();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log({ name, email, biography, phoneNumber });
     const user = await mutateAsync({ name, biography, email, phoneNumber });
   };
   return (
