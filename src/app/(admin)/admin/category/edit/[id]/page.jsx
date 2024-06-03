@@ -1,10 +1,17 @@
 "use client";
 
 import FormCategory from "@/components/FormCategory";
+import FormProduct from "@/components/FormProduct";
 import Loading from "@/components/Loading";
-import { useAddCategory, useCategory } from "@/hooks/useCategory";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import {
+  useAddCategory,
+  useCategory,
+  useGetCategoryById,
+  useUpdateCategory,
+} from "@/hooks/useCategory";
+import { useAddProduct } from "@/hooks/useProduct";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const options = [
@@ -15,9 +22,10 @@ const options = [
 ];
 
 function AddPage() {
+  const pathname = useParams();
   const router = useRouter();
-  const { data, isLoading } = useCategory();
-  const { isPending, mutateAsync } = useAddCategory();
+  const { data, isLoading } = useGetCategoryById(pathname.id);
+  const { isPending, mutateAsync } = useUpdateCategory(pathname.id);
   const [categoryInfo, setCategoryInfo] = useState({
     title: "",
     englishTitle: "",
@@ -47,6 +55,16 @@ function AddPage() {
       console.log(error.message);
     }
   };
+
+  useEffect(() => {
+    if (!isLoading && data) {
+      setCategoryInfo({
+        title: data.category.title,
+        englishTitle: data.category.englishTitle,
+        description: data.category.description,
+      });
+    }
+  }, [data]);
 
   if (!data) return <Loading />;
 

@@ -4,6 +4,7 @@ import Table from "@/components/Table";
 import CategoryTableRow from "./CategoryTableRow";
 import { useCategory } from "@/hooks/useCategory";
 import Loading from "@/components/Loading";
+import Link from "next/link";
 
 function CategoryPage() {
   const { data } = useCategory();
@@ -12,7 +13,12 @@ function CategoryPage() {
 
   return (
     <div>
-      <h1 className="text-3xl mb-4"> دسته بندی ها</h1>
+      <header className="flex justify-between">
+        <h1 className="text-3xl mb-4">دسته بندی ها </h1>
+        <span className="text-primary-700 text-xl mb-4">
+          <Link href="category/add">افزودن دسته بندی جدید</Link>
+        </span>
+      </header>
       <div>
         <Table>
           <Table.Header>
