@@ -76,7 +76,7 @@ table {
 }
 
 table .title-row {
-  background-color: rgb(var(--color-secondary-100));
+  background-color: rgb(var(--color-primary-200));
 }
 
 table td,

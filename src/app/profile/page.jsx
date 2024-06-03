@@ -35,7 +35,6 @@ function ProfilePage() {
       <button className="btn btn--primary" onClick={handleClick}>
         get User
       </button>
-      {/* Table sections */}
 
       <div className="max-h-dvh overflow-y-scroll">
         <Table>

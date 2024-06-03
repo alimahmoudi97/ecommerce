@@ -4,7 +4,7 @@ function TextField({
   lable,
   name,
   value,
-  handler,
+  onChange,
   type = "string",
   placeholder = "",
 }) {
@@ -18,7 +18,7 @@ function TextField({
         name={name}
         type={type}
         value={value}
-        onChange={(e) => handler(e.target.value)}
+        onChange={onChange}
         placeholder={placeholder}
         className="textField"
       />

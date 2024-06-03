@@ -1,4 +1,4 @@
-import { getAllPayments } from "@/services/paymentService";
+import { createPayment, getAllPayments } from "@/services/paymentService";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export function useGetAllPayment() {

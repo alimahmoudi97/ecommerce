@@ -4,6 +4,10 @@ import { useState } from "react";
 
 function GetOtp({ onStep, phoneNumber, setPhoneNumber }) {
   // const [phoneNumber, setPhoneNumber] = useState("");
+
+  const handlePhoneNumber = (e) => {
+    setPhoneNumber(e.target.value);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     onStep(1);
@@ -15,7 +19,7 @@ function GetOtp({ onStep, phoneNumber, setPhoneNumber }) {
         name="phoneNumber"
         lable="شماره تلفن"
         value={phoneNumber}
-        handler={setPhoneNumber}
+        onChanges={handlePhoneNumber}
       />
       <button className="btn btn--primary" onClick={handleSubmit}>
         ارسال کد تایید

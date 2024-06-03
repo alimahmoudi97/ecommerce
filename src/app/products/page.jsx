@@ -3,11 +3,11 @@
 import ProductCart from "@/app/cart/ProductCart";
 import SideBar from "./SideBar";
 import Loading from "@/components/Loading";
-import { useProduct } from "@/hooks/useProduct";
+import { useGetProducts } from "@/hooks/useProduct";
 
 function ProductsList() {
   // TODO:move it on hook
-  const { data, isLoading } = useProduct();
+  const { data, isLoading } = useGetProducts();
 
   if (isLoading) return <Loading />;
 

@@ -1,6 +1,6 @@
 import { completeProfile } from "@/services/authService";
 import { getUserProfile, updateUserProfile } from "@/services/userService";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 
 export function useUser(id) {
