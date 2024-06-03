@@ -15,7 +15,6 @@ function SideBar() {
       <div className="flex flex-col space-y-2">
         <h2 className="font-bold">دسته بندی</h2>
         <ul>
-          {console.log("categories", data.categories)}
           {data.categories.map((category) => {
             return (
               <li key={category._id} className="flex items-center gap-2">

@@ -1,13 +1,11 @@
 "use client";
 
+import FormProduct from "@/components/FormProduct";
 import Loading from "@/components/Loading";
-import TextField from "@/components/TextField";
 import { useCategory } from "@/hooks/useCategory";
 import { useAddProduct } from "@/hooks/useProduct";
-import { useEffect, useId, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
-import Select from "react-select";
-import { TagsInput } from "react-tag-input-component";
 
 function AddPage() {
   const { data, isLoading } = useCategory();
@@ -49,7 +47,7 @@ function AddPage() {
         category: selectedOption.value,
       });
       toast.success(res.message);
-      console.log(res);
+      // console.log(res);
     } catch (error) {
       console.log(error.message);
     }
@@ -60,7 +58,17 @@ function AddPage() {
   return (
     <div className="max-w-md">
       <h1 className="text-3xl mb-4">اضافه کردن محصول</h1>
-      <form onSubmit={handleSubmitForm}>
+      <FormProduct
+        product={productInfo}
+        handleSubmitForm={handleSubmitForm}
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+        selectedTags={selectedTags}
+        setSelectedTags={setSelectedTags}
+        handlerAddProduct={handlerAddProduct}
+        options={options}
+      />
+      {/* <form onSubmit={handleSubmitForm}>
         <TextField
           lable="عنوان"
           name="title"
@@ -133,7 +141,7 @@ function AddPage() {
         <button type="submit" className="btn btn--primary">
           تایید
         </button>
-      </form>
+      </form> */}
     </div>
   );
 }

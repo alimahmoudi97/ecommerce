@@ -15,7 +15,7 @@ function ProfilePage() {
   const { data, isLoading: loadingPayments } = useGetAllPayment();
 
   const handleClick = () => {
-    console.log(profile);
+    // console.log(profile);
   };
 
   if (isLoading || loadingPayments) return <Loading />;

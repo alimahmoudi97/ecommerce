@@ -11,8 +11,6 @@ function ProductPage() {
 
   if (isLoading) return <Loading />;
 
-  console.log("product lists:", data.products);
-
   return (
     <div>
       <header className="flex justify-between">

@@ -24,7 +24,7 @@ function HeaderApp() {
           <Link href="/profile">پنل کاربری</Link>
         </li>
         <li className="p-4">
-          <Link href="#">پنل ادمین</Link>
+          <Link href="/admin">پنل ادمین</Link>
         </li>
         <li className="p-4">
           <Link href="/cart">

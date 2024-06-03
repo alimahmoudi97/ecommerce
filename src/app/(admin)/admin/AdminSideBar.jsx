@@ -14,7 +14,7 @@ function AdminSideBar() {
         </Link>
       </li>
       <li>
-        <Link href="#" className="text-xl">
+        <Link href="/admin" className="text-xl">
           داشبورد
         </Link>
       </li>

@@ -15,9 +15,9 @@ function ProductCart({ product }) {
 
   const { cart } = profile;
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
+    e.preventDefault();
     const res = await mutateAsync({ productId: product._id });
-    console.log(res);
   };
 
   if (isPending) return <Loading />;

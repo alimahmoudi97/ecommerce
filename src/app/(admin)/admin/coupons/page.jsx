@@ -12,7 +12,6 @@ function CouponsPage() {
 
   if (!data) return <Loading />;
 
-  console.log("coupons:", data.coupons);
   return (
     <div>
       <header className="flex justify-between">

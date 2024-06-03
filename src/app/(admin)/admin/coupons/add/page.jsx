@@ -59,7 +59,6 @@ function AddPage() {
       queryClient.invalidateQueries(["coupons"]);
       toast.success(response.message);
       router.push("/admin/coupon");
-      console.log(response);
     } catch (error) {
       toast.error(error.response.data.message);
     }

@@ -10,8 +10,6 @@ function CategoryPage() {
 
   if (!data) return <Loading />;
 
-  console.log("Category data:", data.categories);
-
   return (
     <div>
       <h1 className="text-3xl mb-4"> دسته بندی ها</h1>
