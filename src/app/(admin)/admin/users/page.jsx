@@ -1,7 +1,16 @@
+"use client";
+
 import Table from "@/components/Table";
 import UserTableRow from "./UserTableRow";
+import { useUsers } from "@/hooks/useUser";
+import Loading from "@/components/Loading";
+import { useEffect } from "react";
 
-function page() {
+function UsersPage() {
+  const { data, isLoading } = useUsers();
+
+  if (isLoading) return <Loading />;
+
   return (
     <div>
       <h1 className="text-3xl mb-4">اطلاعات کاربران</h1>
@@ -17,11 +26,13 @@ function page() {
             <th className="table__th">مشاهده</th>
           </Table.Header>
           <Table.Body>
-            <UserTableRow />
+            {data.users.map((user, index) => (
+              <UserTableRow key={user._id} user={user} index={index} />
+            ))}
           </Table.Body>
         </Table>
       </div>
     </div>
   );
 }
-export default page;
+export default UsersPage;

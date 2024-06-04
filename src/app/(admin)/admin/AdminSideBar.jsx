@@ -1,10 +1,16 @@
 "use client";
 
+import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 function AdminSideBar() {
-  const router = useRouter();
+  const route = useRouter();
+  const queryClient = useQueryClient();
+  const handleLogout = () => {
+    queryClient.removeQueries(["user"]);
+    route.push("/auth");
+  };
 
   return (
     <ul className="flex flex-col space-y-6 text-base">
@@ -29,7 +35,7 @@ function AdminSideBar() {
       <li>
         <Link href="/admin/coupons">کد تخفیف</Link>
       </li>
-      <li>
+      <li onClick={handleLogout}>
         <Link href="#">خروج از حساب کاربری</Link>
       </li>
     </ul>

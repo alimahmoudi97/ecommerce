@@ -1,5 +1,9 @@
 import { completeProfile } from "@/services/authService";
-import { getUserProfile, updateUserProfile } from "@/services/userService";
+import {
+  getUserProfile,
+  getUsers,
+  updateUserProfile,
+} from "@/services/userService";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -32,5 +36,12 @@ export function useUpdateProfile() {
     onSuccess: () => {
       toast.success("پروفایل با موفقیعت آپدیدت شد!");
     },
+  });
+}
+
+export function useUsers() {
+  return useQuery({
+    queryKey: ["users"],
+    queryFn: getUsers,
   });
 }

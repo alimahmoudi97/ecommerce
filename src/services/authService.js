@@ -37,3 +37,7 @@ export function completeProfile(data) {
     toast.error(error.response?.data?.message);
   }
 }
+
+export function logout() {
+  return http.post("/user/logout");
+}
