@@ -3,8 +3,7 @@
 import { useUser } from "@/hooks/useUser";
 import CartItem from "./CartItem";
 import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { createPayment } from "@/services/paymentService";
+
 import Loading from "@/components/Loading";
 import { useCreatePayment } from "@/hooks/usePayment";
 

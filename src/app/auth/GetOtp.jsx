@@ -19,7 +19,7 @@ function GetOtp({ onStep, phoneNumber, setPhoneNumber }) {
         name="phoneNumber"
         lable="شماره تلفن"
         value={phoneNumber}
-        onChanges={handlePhoneNumber}
+        onChange={handlePhoneNumber}
       />
       <button className="btn btn--primary" onClick={handleSubmit}>
         ارسال کد تایید

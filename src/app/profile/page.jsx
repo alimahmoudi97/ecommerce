@@ -15,7 +15,7 @@ function ProfilePage() {
   const { data, isLoading: loadingPayments } = useGetAllPayment();
 
   const handleClick = () => {
-    // console.log(profile);
+    console.log("data:", data);
   };
 
   if (isLoading || loadingPayments) return <Loading />;
@@ -32,38 +32,59 @@ function ProfilePage() {
         تاریخ پیوستن:
         {new Date(profile.user.createdAt).toLocaleDateString("fa-IR")}
       </span>
-      <button className="btn btn--primary" onClick={handleClick}>
+      {/* <button className="btn btn--primary" onClick={handleClick}>
         get User
-      </button>
+      </button> */}
 
-      <div className="max-h-dvh overflow-y-scroll">
+      <div className="shadow-sm overflow-auto">
         <Table>
           <Table.Header>
-            <th>#</th>
-            <th>شماره فاکتور</th>
-            <th>توضیحات</th>
-            <th>محصولات</th>
-            <th>مبلغ</th>
-            <th>تاریخ</th>
-            <th>وضعیت</th>
+            <th className="table__th">#</th>
+            <th className="table__th">شماره فاکتور</th>
+            <th className="table__th">توضیحات</th>
+            <th className="table__th">محصولات</th>
+            <th className="table__th">مبلغ</th>
+            <th className="table__th">تاریخ</th>
+            <th className="table__th">وضعیت</th>
           </Table.Header>
           <Table.Body>
             {data.payments.map((item, index) => {
               return (
                 <Table.Row key={item._id}>
-                  <td>{index}</td>
-                  <td> {toPersianNumbers(item.invoiceNumber)}</td>
-                  <td>{item.description}</td>
-                  <td>
-                    {item.cart.productDetail.map((product) => {
-                      return <span key={product._id}>{product.title}</span>;
-                    })}
+                  <td className="table__td">{index + 1}</td>
+                  <td className="table__td">
+                    {toPersianNumbers(item.invoiceNumber)}
                   </td>
-                  <td>{toPersianNumbersWithComma(item.amount)}</td>
-                  <td>
+                  <td className="table__td truncate max-w-72">
+                    {item.description}
+                  </td>
+                  <td className="table__td">
+                    <div className="flex flex-col gap-y-2 items-start">
+                      {item.cart.productDetail.map((product) => {
+                        return (
+                          <span
+                            key={product._id}
+                            className="badge badge--secondary"
+                          >
+                            {product.title}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </td>
+                  <td className="table__td font-bold text-lg">
+                    {toPersianNumbersWithComma(item.amount)}
+                  </td>
+                  <td className="table__td">
                     {new Date(item.createdAt).toLocaleDateString("fa-IR")}
                   </td>
-                  <td className="success">{item.status}</td>
+                  <td className="table__td">
+                    {item.status === "COMPLETED" ? (
+                      <span className="badge badge--success">موفق</span>
+                    ) : (
+                      <span className="badge badge--error">ناموفق</span>
+                    )}
+                  </td>
                 </Table.Row>
               );
             })}

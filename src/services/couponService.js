@@ -7,3 +7,9 @@ export function getCoupons() {
 export function addCoupon(coupon) {
   return http.post("/admin/coupon/add", coupon).then(({ data }) => data.data);
 }
+
+export function removeCoupon(id) {
+  return http
+    .delete(`/admin/coupon/remove/${id}`)
+    .then(({ data }) => data.data);
+}

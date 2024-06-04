@@ -15,19 +15,19 @@ function CategoryPage() {
     <div>
       <header className="flex justify-between">
         <h1 className="text-3xl mb-4">دسته بندی ها </h1>
-        <span className="text-primary-700 text-xl mb-4">
+        <span className="text-primary-900 text-xl mb-4">
           <Link href="category/add">افزودن دسته بندی جدید</Link>
         </span>
       </header>
       <div>
         <Table>
           <Table.Header>
-            <th>#</th>
-            <th>عنوان</th>
-            <th> توضیحات </th>
-            <th>عنوان انگلیسی</th>
-            <th>نوع </th>
-            <th>عملیات</th>
+            <th className="table__th">#</th>
+            <th className="table__th">عنوان</th>
+            <th className="table__th"> توضیحات </th>
+            <th className="table__th">عنوان انگلیسی</th>
+            <th className="table__th">نوع </th>
+            <th className="table__th">عملیات</th>
           </Table.Header>
           <Table.Body>
             {data.categories.map((category, index) => {

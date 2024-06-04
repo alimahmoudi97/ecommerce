@@ -49,6 +49,30 @@
   .success {
     @apply bg-success text-white text-sm;
   }
+
+  .table__th {
+    @apply border-b-2 border-b-gray-500 font-medium p-3 pr-8 pb-3 text-right;
+  }
+
+  .table__td {
+    @apply border-b border-b-gray-300 p-3 pr-8 pb-3 text-right;
+  }
+
+  .badge {
+    @apply py-1 px-3  rounded-xl whitespace-nowrap;
+  }
+  .badge--primary {
+    @apply text-secondary-0 bg-primary-900;
+  }
+  .badge--secondary {
+    @apply text-secondary-0 bg-secondary-600;
+  }
+  .badge--success {
+    @apply text-secondary-0 bg-green-600;
+  }
+  .badge--error {
+    @apply text-secondary-0 bg-rose-600;
+  }
 }
 
 * {
@@ -69,7 +93,7 @@ body {
 
 /* TABLE */
 
-table {
+/* table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
@@ -96,4 +120,4 @@ table td {
   font-size: 1rem;
   padding: 1rem;
   color: rgb(var(--color-secondary-600));
-}
+} */

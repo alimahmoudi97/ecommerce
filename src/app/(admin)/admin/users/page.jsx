@@ -8,13 +8,13 @@ function page() {
       <div>
         <Table>
           <Table.Header>
-            <th>#</th>
-            <th>نام </th>
-            <th>ایمیل</th>
-            <th>شماره موبایل</th>
-            <th>تاریخ پیوستن</th>
-            <th>وضعیت</th>
-            <th>مشاهده</th>
+            <th className="table__th">#</th>
+            <th className="table__th">نام </th>
+            <th className="table__th">ایمیل</th>
+            <th className="table__th">شماره موبایل</th>
+            <th className="table__th">تاریخ پیوستن</th>
+            <th className="table__th">وضعیت</th>
+            <th className="table__th">مشاهده</th>
           </Table.Header>
           <Table.Body>
             <UserTableRow />

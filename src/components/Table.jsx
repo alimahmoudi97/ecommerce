@@ -1,8 +1,8 @@
 function Table({ children }) {
   return (
-    <div className="bg-secondary-0 overflow-x-auto">
-      <table>{children}</table>
-    </div>
+    <table className="border-collapse table-auto w-full min-w-[800px] text-sm">
+      {children}
+    </table>
   );
 }
 export default Table;
@@ -10,7 +10,7 @@ export default Table;
 function TableHeader({ children }) {
   return (
     <thead>
-      <tr className="title-row">{children}</tr>
+      <tr>{children}</tr>
     </thead>
   );
 }

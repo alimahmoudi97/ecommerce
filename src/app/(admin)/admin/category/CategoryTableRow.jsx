@@ -22,21 +22,21 @@ function CategoryTableRow({ category, index }) {
 
   return (
     <Table.Row>
-      <td>{index + 1}</td>
-      <td>{category.title} </td>
-      <td>{category.description}</td>
-      <td>{category.englishTitle}</td>
-      <td>{category.type}</td>
-      <td>
+      <td className="table__td">{index + 1}</td>
+      <td className="table__td font-bold">{category.title} </td>
+      <td className="table__td">{category.description}</td>
+      <td className="table__td">{category.englishTitle}</td>
+      <td className="table__td">{category.type}</td>
+      <td className="table__td">
         <span className="flex gap-4">
           <button onClick={handleClick}>
-            <MdDelete className="w-8 h-8 text-red-500" />
+            <MdDelete className="w-6 h-6 text-red-700" />
           </button>
           <Link href="#">
-            <IoMdEye className="w-8 h-8 text-primary-600" />
+            <IoMdEye className="w-6 h-6 text-primary-900" />
           </Link>
           <Link href={`/admin/category/edit/${category._id}`}>
-            <CiEdit className="w-8 h-8 text-secondary-500" />
+            <CiEdit className="w-6 h-6 text-secondary-700" />
           </Link>
         </span>
       </td>

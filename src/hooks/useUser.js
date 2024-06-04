@@ -1,6 +1,7 @@
 import { completeProfile } from "@/services/authService";
 import { getUserProfile, updateUserProfile } from "@/services/userService";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 export function useUser(id) {
@@ -15,7 +16,7 @@ export function useUser(id) {
 
 export function useCompleteProfile() {
   const router = useRouter();
-  useMutation({
+  return useMutation({
     mutationFn: completeProfile,
     onSuccess: (data) => {
       toast.success(data.message);

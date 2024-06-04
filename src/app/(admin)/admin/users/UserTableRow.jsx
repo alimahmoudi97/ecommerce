@@ -11,13 +11,21 @@ function UserTableRow() {
   //   console.log("user profile:", user.profile.user);
   return (
     <Table.Row>
-      <td>0</td>
-      <td>{userInfo.name} </td>
-      <td>{userInfo.email}</td>
-      <td>{userInfo.phoneNumber}</td>
-      <td>{new Date(userInfo.createdAt).toLocaleDateString("fa-IR")}</td>
-      <td>{userInfo.isActive === true ? "فعال" : "غیرفعال"}</td>
-      <td>جزئیات</td>
+      <td className="table__td">0</td>
+      <td className="table__td">{userInfo.name} </td>
+      <td className="table__td font-bold">{userInfo.email}</td>
+      <td className="table__td">{userInfo.phoneNumber}</td>
+      <td className="table__td">
+        {new Date(userInfo.createdAt).toLocaleDateString("fa-IR")}
+      </td>
+      <td className="table__td">
+        {userInfo.isActive === true ? (
+          <span className="badge badge--success">فعال</span>
+        ) : (
+          <span className="badge badge--error">غیرفعال</span>
+        )}
+      </td>
+      <td className="table__td">جزئیات</td>
     </Table.Row>
   );
 }

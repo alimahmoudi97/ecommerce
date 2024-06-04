@@ -16,22 +16,22 @@ function CouponsPage() {
     <div>
       <header className="flex justify-between">
         <h1 className="text-3xl mb-4"> کد تخفیف</h1>
-        <span className="text-primary-700 text-xl mb-4">
+        <span className="text-primary-900 text-xl mb-4">
           <Link href="coupons/add">افزودن کد تخفیف جدید</Link>
         </span>
       </header>
       <div>
         <Table>
           <Table.Header>
-            <th>#</th>
-            <th>کد</th>
-            <th> نوع </th>
-            <th>مقدار</th>
-            <th>شامل محصولات </th>
-            <th> مقدار مصرفی </th>
-            <th>ظرفیت</th>
-            <th>تاریخ انقضا</th>
-            <th>عملیات</th>
+            <th className="table__th">#</th>
+            <th className="table__th">کد</th>
+            <th className="table__th"> نوع </th>
+            <th className="table__th">مقدار</th>
+            <th className="table__th">شامل محصولات </th>
+            <th className="table__th"> مقدار مصرفی </th>
+            <th className="table__th">ظرفیت</th>
+            <th className="table__th">تاریخ انقضا</th>
+            <th className="table__th">عملیات</th>
           </Table.Header>
           <Table.Body>
             {data.coupons.map((coupon, index) => {
