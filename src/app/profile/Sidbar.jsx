@@ -7,31 +7,21 @@ function Sidbar() {
   const router = useRouter();
 
   return (
-    <ul className="flex flex-col space-y-8">
-      <li onClick={() => router.push("/")}>
-        <Link href="#" className="text-xl">
-          صفحه اصلی
-        </Link>
-      </li>
-      <li onClick={() => router.push("/profile")}>
-        <Link href="#" className="text-xl">
-          داشبورد
-        </Link>
-      </li>
-      <li onClick={() => router.push("/profile/me")}>
-        <Link href="#" className="text-xl">
-          اطلاعات کاربردی
-        </Link>
+    <ul className="flex flex-col space-y-6 text-base">
+      <li>
+        <Link href="/">صفحه اصلی</Link>
       </li>
       <li>
-        <Link href="#" className="text-xl">
-          سفارشات
-        </Link>
+        <Link href="/profile">داشبورد</Link>
       </li>
       <li>
-        <Link href="#" className="text-xl">
-          خروج از حساب کاربری
-        </Link>
+        <Link href="/profile/me">اطلاعات کاربردی</Link>
+      </li>
+      <li>
+        <Link href="#">سفارشات</Link>
+      </li>
+      <li>
+        <Link href="#">خروج از حساب کاربری</Link>
       </li>
     </ul>
   );

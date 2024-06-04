@@ -7,46 +7,30 @@ function AdminSideBar() {
   const router = useRouter();
 
   return (
-    <ul className="flex flex-col space-y-8">
+    <ul className="flex flex-col space-y-6 text-base">
       <li>
-        <Link href="/" className="text-xl">
-          صفحه اصلی
-        </Link>
+        <Link href="/">صفحه اصلی</Link>
       </li>
       <li>
-        <Link href="/admin" className="text-xl">
-          داشبورد
-        </Link>
+        <Link href="/admin">داشبورد</Link>
       </li>
       <li>
-        <Link href="/admin/users" className="text-xl">
-          کاربران
-        </Link>
+        <Link href="/admin/users">کاربران</Link>
       </li>
       <li>
-        <Link href="/admin/products" className="text-xl">
-          محصولات
-        </Link>
+        <Link href="/admin/products">محصولات</Link>
       </li>
       <li>
-        <Link href="/admin/category" className="text-xl">
-          دسته بندی
-        </Link>
+        <Link href="/admin/category">دسته بندی</Link>
       </li>
       <li>
-        <Link href="#" className="text-xl">
-          سفارشات
-        </Link>
+        <Link href="#">سفارشات</Link>
       </li>
       <li>
-        <Link href="/admin/coupons" className="text-xl">
-          کد تخفیف
-        </Link>
+        <Link href="/admin/coupons">کد تخفیف</Link>
       </li>
       <li>
-        <Link href="#" className="text-xl">
-          خروج از حساب کاربری
-        </Link>
+        <Link href="#">خروج از حساب کاربری</Link>
       </li>
     </ul>
   );
