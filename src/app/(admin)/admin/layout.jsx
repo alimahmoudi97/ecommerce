@@ -1,3 +1,5 @@
+"use client";
+
 import AdminSideBar from "./AdminSideBar";
 
 function Layout({ children }) {

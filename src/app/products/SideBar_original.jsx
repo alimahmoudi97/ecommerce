@@ -14,12 +14,12 @@ import { useCallback, useEffect, useState } from "react";
 
 export const dynamic = "force-dynamic";
 
-function SideBar({ categories }) {
+function SideBar() {
   const router = useRouter();
-
   const pathname = usePathname();
   const queryClient = useQueryClient();
   const searchParams = useSearchParams();
+  const { data, isLoading } = useCategory();
   const [selectedCategory, setSelectedCategory] = useState(
     searchParams.get("category")?.split(",") || []
   );
@@ -52,13 +52,20 @@ function SideBar({ categories }) {
     }
   };
 
+  useEffect(() => {
+    SetSelectedSort(searchParams.get("sort"));
+    // router.refresh();
+  }, [searchParams]);
+
+  if (isLoading) return <Loading />;
+
   return (
     <div className="flex flex-col space-y-4">
       {/* TODO:create categories component and fetch categories inside that */}
       <div className="flex flex-col space-y-2">
         <h2 className="font-bold">دسته بندی</h2>
         <ul>
-          {categories.map((category) => {
+          {data.categories.map((category) => {
             return (
               <li
                 key={category._id}
@@ -84,44 +91,39 @@ function SideBar({ categories }) {
         <h2 className="font-bold">مرتب سازی</h2>
         <ul>
           <li
-            onClick={() => {
-              router.push(pathname + "?" + createQueryString("sort", "latest"));
-              //   SetSelectedSort(searchParams.get("sort"));
-            }}
+            onClick={() =>
+              router.push(pathname + "?" + createQueryString("sort", "latest"))
+            }
           >
             <RadioButton
               name="sort"
               id="latest"
               label="جدید ترین"
-              checked={searchParams.get("sort") == "latest"}
+              checked={selectedSort == "latest"}
             />
           </li>
           <li
-            onClick={() => {
-              router.push(
-                pathname + "?" + createQueryString("sort", "earlest")
-              );
-              //   SetSelectedSort(searchParams.get("sort"));
-            }}
+            onClick={() =>
+              router.push(pathname + "?" + createQueryString("sort", "earlest"))
+            }
           >
             <RadioButton
               name="sort"
               id="earlest"
               label="قدیمی ترین"
-              checked={searchParams.get("sort") == "earlest"}
+              checked={selectedSort == "earlest"}
             />
           </li>
           <li
-            onClick={() => {
-              router.push(pathname + "?" + createQueryString("sort", "most"));
-              //   SetSelectedSort(searchParams.get("sort"));
-            }}
+            onClick={() =>
+              router.push(pathname + "?" + createQueryString("sort", "most"))
+            }
           >
             <RadioButton
               name="sort"
               id="most"
               label="محبوب ترین"
-              checked={searchParams.get("sort") == "most"}
+              checked={selectedSort == "most"}
             />
           </li>
         </ul>

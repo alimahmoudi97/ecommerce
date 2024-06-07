@@ -28,8 +28,8 @@ function Sidbar() {
       <li>
         <Link href="#">سفارشات</Link>
       </li>
-      <li onClick={handleLogout}>
-        <Link href="#">خروج از حساب کاربری</Link>
+      <li>
+        <button onClick={handleLogout}>خروج از حساب کاربری</button>
       </li>
     </ul>
   );

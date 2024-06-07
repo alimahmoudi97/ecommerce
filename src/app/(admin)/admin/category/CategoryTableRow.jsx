@@ -26,7 +26,9 @@ function CategoryTableRow({ category, index }) {
       <td className="table__td font-bold">{category.title} </td>
       <td className="table__td">{category.description}</td>
       <td className="table__td">{category.englishTitle}</td>
-      <td className="table__td">{category.type}</td>
+      <td className="table__td">
+        <span className=" badge badge--secondary">{category.type}</span>
+      </td>
       <td className="table__td">
         <span className="flex gap-4">
           <button onClick={handleClick}>

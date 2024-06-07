@@ -10,6 +10,5 @@ export async function middlewareAuth(req) {
     },
   }).then((res) => res.json());
   const { user } = data || {};
-
   return user;
 }

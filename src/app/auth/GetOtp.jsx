@@ -1,3 +1,5 @@
+"use client";
+
 import { getOtp } from "@/services/authService";
 import TextField from "../../components/TextField";
 import { useState } from "react";

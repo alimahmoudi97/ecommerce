@@ -1,3 +1,5 @@
+"use client";
+
 import Sidbar from "./Sidbar";
 
 function ProfileLayout({ children }) {

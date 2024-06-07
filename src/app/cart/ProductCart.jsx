@@ -1,3 +1,5 @@
+"use client";
+
 import Loading from "@/components/Loading";
 import { useAddToCart } from "@/hooks/useCart";
 import { useUser } from "@/hooks/useUser";

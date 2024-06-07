@@ -35,8 +35,8 @@ function AdminSideBar() {
       <li>
         <Link href="/admin/coupons">کد تخفیف</Link>
       </li>
-      <li onClick={handleLogout}>
-        <Link href="#">خروج از حساب کاربری</Link>
+      <li>
+        <button onClick={handleLogout}>خروج از حساب کاربری</button>
       </li>
     </ul>
   );
