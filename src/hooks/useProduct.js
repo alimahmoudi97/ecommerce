@@ -7,7 +7,7 @@ import {
 } from "@/services/productService";
 import { useMutation, useQuery } from "@tanstack/react-query";
 
-export function useGetProducts(qs) {
+export function useGetProducts(qs = "") {
   console.log("qs:", qs);
   return useQuery({
     queryKey: ["products"],

@@ -3,7 +3,8 @@ import "./globals.css";
 import vazirFont from "@/constants/localFonts";
 import { Toaster } from "react-hot-toast";
 import Providers from "./Providers";
-import HeaderApp from "./HeaderApp";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,8 +23,11 @@ export default function RootLayout({ children }) {
           }}
         />
         <Providers>
-          <HeaderApp />
-          {children}
+          <div className="flex flex-col">
+            <Header />
+            <main>{children}</main>
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>

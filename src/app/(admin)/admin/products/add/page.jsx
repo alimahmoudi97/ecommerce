@@ -4,10 +4,12 @@ import FormProduct from "@/components/FormProduct";
 import Loading from "@/components/Loading";
 import { useCategory } from "@/hooks/useCategory";
 import { useAddProduct } from "@/hooks/useProduct";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
 function AddPage() {
+  const router = useRouter();
   const { data, isLoading } = useCategory();
   const { isPending, mutateAsync } = useAddProduct();
   const [productInfo, setProductInfo] = useState({
@@ -47,6 +49,7 @@ function AddPage() {
         category: selectedOption.value,
       });
       toast.success(res.message);
+      router.push("/admin/products");
       // console.log(res);
     } catch (error) {
       console.log(error.message);

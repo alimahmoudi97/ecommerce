@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/hooks/useUser";
 import Link from "next/link";
 
-function HeaderApp() {
+function Header() {
   const { profile, isLoading } = useUser();
   const router = useRouter();
 
@@ -16,7 +16,7 @@ function HeaderApp() {
     <header className="border-b">
       <ul className="flex justify-evenly">
         <li className="p-4">
-          <Link href="#">خانه</Link>
+          <Link href="/">خانه</Link>
         </li>
         <li className="p-4">
           <Link href="/products">محصولات</Link>
@@ -39,4 +39,4 @@ function HeaderApp() {
     </header>
   );
 }
-export default HeaderApp;
+export default Header;

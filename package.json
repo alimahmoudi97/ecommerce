@@ -22,7 +22,8 @@
     "react-multi-date-picker": "^4.5.1",
     "react-otp-input": "^3.1.1",
     "react-select": "^5.8.0",
-    "react-tag-input-component": "^2.0.2"
+    "react-tag-input-component": "^2.0.2",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
