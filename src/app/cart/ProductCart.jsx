@@ -25,9 +25,9 @@ function ProductCart({ product }) {
   if (isPending) return <Loading />;
 
   return (
-    <div className="border border-secondary-100 border-opacity-50 rounded-2xl col-span-1 p-4 shadow-lg flex flex-col gap-4">
+    <div className="border border-secondary-100 border-opacity-50 rounded-2xl col-span-1 p-4 shadow-lg flex flex-col gap-1 hover:scale-105 transition-all ease-in-out">
       {/* <img src={product?.imageLink} alt="" /> */}
-      <div className="aspect-w-16 aspect-h-9 lg:aspect-none mb-4 flex-1">
+      <div className="aspect-w-16 aspect-h-9  mb-4 flex-1">
         <Link href={`/${product._id}`}>
           <img
             src={product?.imageLink}
@@ -43,14 +43,16 @@ function ProductCart({ product }) {
           {new Date(product.createdAt).toLocaleDateString("fa-IR")}
         </span>
       </div>
-      <div className="text-primary-900">مشاهده محصول</div>
+      <div>
+        <span></span>
+      </div>
       <AiOutlineLike className="cursor-pointer" size={24} />
-      <button
+      {/* <button
         onClick={handleClick}
         className="cursor-pointer bg-primary-900 hover:bg-primary-700 text-white text-md font-bold p-4 rounded-3xl"
       >
         اضافه کردن به سبد خرید
-      </button>
+      </button> */}
     </div>
   );
 }

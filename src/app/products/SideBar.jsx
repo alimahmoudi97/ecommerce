@@ -79,53 +79,6 @@ function SideBar({ categories }) {
           })}
         </ul>
       </div>
-      {/* TODO:crate sort component and customize it */}
-      <div className="flex flex-col space-y-2">
-        <h2 className="font-bold">مرتب سازی</h2>
-        <ul>
-          <li
-            onClick={() => {
-              router.push(pathname + "?" + createQueryString("sort", "latest"));
-              //   SetSelectedSort(searchParams.get("sort"));
-            }}
-          >
-            <RadioButton
-              name="sort"
-              id="latest"
-              label="جدید ترین"
-              checked={searchParams.get("sort") == "latest"}
-            />
-          </li>
-          <li
-            onClick={() => {
-              router.push(
-                pathname + "?" + createQueryString("sort", "earlest")
-              );
-              //   SetSelectedSort(searchParams.get("sort"));
-            }}
-          >
-            <RadioButton
-              name="sort"
-              id="earlest"
-              label="قدیمی ترین"
-              checked={searchParams.get("sort") == "earlest"}
-            />
-          </li>
-          <li
-            onClick={() => {
-              router.push(pathname + "?" + createQueryString("sort", "most"));
-              //   SetSelectedSort(searchParams.get("sort"));
-            }}
-          >
-            <RadioButton
-              name="sort"
-              id="most"
-              label="محبوب ترین"
-              checked={searchParams.get("sort") == "most"}
-            />
-          </li>
-        </ul>
-      </div>
     </div>
   );
 }

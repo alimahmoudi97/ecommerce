@@ -6,6 +6,8 @@ import { getProducts } from "@/services/productService";
 import { toStringCookies } from "@/utils/toStringCookies";
 import { cookies } from "next/headers";
 import { getCategories } from "@/services/categoryService";
+import { FaSortAmountDown } from "react-icons/fa";
+import Sort from "@/components/Sort";
 
 export const dynamic = "force-dynamic";
 
@@ -32,6 +34,7 @@ async function Products({ searchParams }) {
         <SideBar categories={categories} />
         {/* product list */}
         <div className="md:col-span-3">
+          <Sort />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {products.map((product, index) => {
               return <ProductCart key={product._id} product={product} />;
