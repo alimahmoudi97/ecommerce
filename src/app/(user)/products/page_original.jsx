@@ -1,6 +1,6 @@
 "use client";
 
-import ProductCart from "@/app/cart/ProductCart";
+import ProductCart from "@/app/(user)/cart/ProductCart";
 import SideBar from "./SideBar";
 // import Loading from "@/components/Loading";
 // import { useGetProducts } from "@/hooks/useProduct";

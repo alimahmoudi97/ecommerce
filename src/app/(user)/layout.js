@@ -1,10 +1,10 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import vazirFont from "@/constants/localFonts";
 import { Toaster } from "react-hot-toast";
-import Providers from "./Providers";
-import Header from "./Header";
-import Footer from "./Footer";
+import Providers from "../Providers";
+import Header from "../Header";
+import Footer from "../Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -5,7 +5,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
-function Drawer({ handleDrawer, children }) {
+function Drawer({ handleDrawer }) {
   const route = useRouter();
   const queryClient = useQueryClient();
 

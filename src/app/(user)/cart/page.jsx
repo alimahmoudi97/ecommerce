@@ -21,7 +21,7 @@ function CartPage() {
   return (
     <div className="container mx-auto mt-8">
       <div className="grid grid-cols-4 gap-2">
-        <div className="col-span-3 space-y-2">
+        <div className="col-span-4 lg:col-span-3 space-y-2">
           {profile.cart.productDetail.length === 0 ? (
             <p className="text-center text-xl">سبد محصولات خالی است</p>
           ) : (
@@ -30,8 +30,8 @@ function CartPage() {
             })
           )}
         </div>
-        <div className="col-span-1">
-          <div className="flex flex-col gap-4 p-4 border rounded-lg">
+        <div className="col-span-4 lg:col-span-1">
+          <div className="gap-1  flex flex-col lg:gap-4 p-4 border rounded-lg">
             <h2 className="font-bold text-lg">اطلاعات پرداخت</h2>
 
             <div className="flex justify-between">

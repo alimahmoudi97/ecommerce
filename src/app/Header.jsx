@@ -4,17 +4,97 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/hooks/useUser";
 import { FaCartShopping } from "react-icons/fa6";
 import Link from "next/link";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
 
 function Header() {
   const { profile, isLoading } = useUser();
+  const [showDrawer, SetShowDrawer] = useState(false);
   const { user, cart } = profile || {};
   const router = useRouter();
+
+  const handleDrawer = (d) => {
+    SetShowDrawer(d);
+  };
 
   // if (!profile.user) return <Loading />;
 
   return (
-    <header className="border-b shadow-md shadow-primary-100 hidden lg:block">
-      <div className="flex container mx-auto">
+    <header className="border-b shadow-md shadow-primary-100">
+      <div className="block lg:hidden ">
+        <RxHamburgerMenu size={45} onClick={() => handleDrawer(true)} />
+      </div>
+      {showDrawer && (
+        <div className="bg-secondary-0 z-50 fixed inset-0">
+          <div className="absolute left-0 p-4">
+            <span
+              className="cursor-pointer"
+              onClick={() => handleDrawer(false)}
+            >
+              ❌
+            </span>
+          </div>
+          <div className="mt-10">
+            <ul className="flex flex-col space-y-6 text-base w-full">
+              <li>
+                <Link
+                  href="/"
+                  className="hover:bg-primary-200 rounded-lg p-4"
+                  onClick={() => handleDrawer(false)}
+                >
+                  خانه
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/products"
+                  className="hover:bg-primary-200 rounded-lg p-4"
+                  onClick={() => handleDrawer(false)}
+                >
+                  محصولات
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/profile"
+                  className="hover:bg-primary-200 rounded-lg p-4"
+                  onClick={() => handleDrawer(false)}
+                >
+                  پنل کاربری
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/admin"
+                  className="hover:bg-primary-200 rounded-lg p-4"
+                  onClick={() => handleDrawer(false)}
+                >
+                  پنل ادمین
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/cart"
+                  className="hover:bg-primary-200 rounded-lg p-4"
+                  onClick={() => handleDrawer(false)}
+                >
+                  سبد خرید
+                </Link>
+              </li>
+              <li>
+                {user ? (
+                  <span>{user.name}</span>
+                ) : (
+                  <Link className="block" href="/auth">
+                    ورود
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
+      <div className="container mx-auto hidden lg:flex">
         <ul className="flex flex-1">
           <li className="p-4 hover:bg-primary-100">
             <Link href="/">خانه</Link>

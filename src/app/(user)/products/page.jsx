@@ -1,4 +1,4 @@
-import ProductCart from "@/app/cart/ProductCart";
+import ProductCart from "@/app/(user)/cart/ProductCart";
 import SideBar from "./SideBar";
 
 import queryString from "query-string";
