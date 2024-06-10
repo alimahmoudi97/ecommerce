@@ -59,7 +59,7 @@
   }
 
   .badge {
-    @apply py-1 px-3  rounded-xl whitespace-nowrap;
+    @apply py-1 px-3  rounded-full whitespace-nowrap;
   }
   .badge--primary {
     @apply text-secondary-0 bg-primary-900;

@@ -24,9 +24,9 @@ function Sort() {
 
   return (
     <div className="mb-8">
-      <div className="flex gap-2">
+      <div className="flex gap-2 p-4 overflow-x-auto">
         <FaSortAmountDown size={24} />
-        <span>مرتب سازی:</span>
+        <span className="whitespace-nowrap">مرتب سازی:</span>
         <ul className="flex">
           <li
             onClick={() => {
@@ -34,7 +34,7 @@ function Sort() {
             }}
           >
             <span
-              className={`px-4 py-2  cursor-pointer ${
+              className={`px-4 py-2 whitespace-nowrap cursor-pointer ${
                 searchParams.get("sort") == "latest"
                   ? "text-primary-900 border-b-2 border-primary-900"
                   : "text-secondary-600"
@@ -51,7 +51,7 @@ function Sort() {
             }}
           >
             <span
-              className={`px-4 py-2 cursor-pointer ${
+              className={`px-4 py-2 whitespace-nowrap cursor-pointer ${
                 searchParams.get("sort") == "earlest"
                   ? "text-primary-900 border-b-2 border-primary-900"
                   : "text-secondary-600"
@@ -66,7 +66,7 @@ function Sort() {
             }}
           >
             <span
-              className={`px-4 py-2 cursor-pointer ${
+              className={`px-4 py-2 whitespace-nowrap cursor-pointer ${
                 searchParams.get("sort") == "most"
                   ? "text-primary-900 border-b-2 border-primary-900"
                   : "text-secondary-600"

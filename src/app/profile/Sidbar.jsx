@@ -12,6 +12,7 @@ function Sidbar() {
     logout();
     queryClient.removeQueries(["user"]);
     route.push("/auth");
+    route.refresh();
   };
 
   return (

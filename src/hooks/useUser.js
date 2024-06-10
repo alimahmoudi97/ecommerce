@@ -8,10 +8,13 @@ import { useMutation, useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-export function useUser(id) {
+export function useUser() {
   const { data, isLoading } = useQuery({
     queryKey: ["user"],
     queryFn: getUserProfile,
+    initialData: () => {},
+    retry: false,
+    refetchOnWindowFocus: true,
   });
   const profile = data?.data || {};
 

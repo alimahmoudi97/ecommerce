@@ -15,15 +15,15 @@ export async function getOtp(data) {
 }
 
 export function checkOtp(data) {
-  // return await http.post("/user/check-otp", data).then(({ data }) => data.data);
-  try {
-    const response = http
-      .post("/user/check-otp", data)
-      .then(({ data }) => data.data.user);
-    return response;
-  } catch (error) {
-    toast.error(error.response?.data?.message);
-  }
+  return http.post("/user/check-otp", data).then(({ data }) => data.data.user);
+  // try {
+  //   const response = http
+  //     .post("/user/check-otp", data)
+  //     .then(({ data }) => data.data.user);
+  //   return response;
+  // } catch (error) {
+  //   toast.error(error.response?.data?.message);
+  // }
 }
 
 export function completeProfile(data) {

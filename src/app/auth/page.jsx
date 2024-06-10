@@ -15,6 +15,7 @@ function AuthPage() {
   const handlePhoneNumber = (data) => {
     setPhoneNumber(data);
   };
+
   return (
     <div className="w-full md:max-w-[30rem] mx-auto">
       {step == 0 ? (
