@@ -7,6 +7,7 @@ import { useAddProduct } from "@/hooks/useProduct";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { FiArrowLeft } from "react-icons/fi";
 
 function AddPage() {
   const router = useRouter();
@@ -40,6 +41,10 @@ function AddPage() {
     });
   };
 
+  const handleBack = () => {
+    router.back();
+  };
+
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     try {
@@ -60,7 +65,10 @@ function AddPage() {
 
   return (
     <div className="max-w-md">
-      <h1 className="text-3xl mb-4">اضافه کردن محصول</h1>
+      <div className="flex justify-between">
+        <h1 className="text-3xl mb-4">اضافه کردن محصول</h1>
+        <FiArrowLeft onClick={handleBack} size={45} />
+      </div>
       <FormProduct
         product={productInfo}
         handleSubmitForm={handleSubmitForm}

@@ -12,6 +12,7 @@ import { useAddCoupon } from "@/hooks/useCoupon";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { FiArrowLeft } from "react-icons/fi";
 
 function AddPage() {
   const queryClient = useQueryClient();
@@ -46,6 +47,10 @@ function AddPage() {
     setType(e.target.value);
   };
 
+  const handleBack = () => {
+    router.back();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -68,7 +73,10 @@ function AddPage() {
 
   return (
     <div className="max-w-sm">
-      <h1 className="text-xl font-bold mb-4">اضافه کردن کد تخفیف</h1>
+      <div className="flex justify-between">
+        <h1 className="text-xl font-bold mb-4">اضافه کردن کد تخفیف</h1>
+        <FiArrowLeft onClick={handleBack} size={45} />
+      </div>
       <form onSubmit={handleSubmit}>
         <TextField
           lable="کد"

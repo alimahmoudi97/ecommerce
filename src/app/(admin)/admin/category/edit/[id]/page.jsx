@@ -13,6 +13,7 @@ import { useAddProduct } from "@/hooks/useProduct";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { FiArrowLeft } from "react-icons/fi";
 
 const options = [
   { value: "product", label: "محصول" },
@@ -39,6 +40,10 @@ function AddPage() {
       ...categoryInfo,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const handleBack = () => {
+    router.back();
   };
 
   const handleSubmitForm = async (e) => {
@@ -70,7 +75,10 @@ function AddPage() {
 
   return (
     <div className="max-w-md">
-      <h1 className="text-3xl mb-4">اضافه کردن دسته بندی</h1>
+      <div className="flex justify-between">
+        <h1 className="text-3xl mb-4">ویرایش دسته بندی</h1>
+        <FiArrowLeft onClick={handleBack} size={45} />
+      </div>
       <FormCategory
         category={categoryInfo}
         handleSubmitForm={handleSubmitForm}

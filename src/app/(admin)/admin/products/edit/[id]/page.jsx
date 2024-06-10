@@ -4,11 +4,13 @@ import FormProduct from "@/components/FormProduct";
 import Loading from "@/components/Loading";
 import { useCategory } from "@/hooks/useCategory";
 import { useGetProductById, useUpdateProduct } from "@/hooks/useProduct";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { FiArrowLeft } from "react-icons/fi";
 
 function EditPage() {
+  const router = useRouter();
   const params = useParams();
   const { data, isLoading, isFetched } = useGetProductById(params.id);
   const { data: categories } = useCategory();
@@ -50,6 +52,10 @@ function EditPage() {
     }
   };
 
+  const handleBack = () => {
+    router.back();
+  };
+
   useEffect(() => {
     if (!isLoading && data.product) {
       setProductInfo({
@@ -88,7 +94,10 @@ function EditPage() {
 
   return (
     <div className="max-w-md">
-      <h1 className="text-3xl mb-4">اضافه کردن محصول</h1>
+      <div className="flex justify-between">
+        <h1 className="text-3xl mb-4"> به روز رسانی محصول</h1>
+        <FiArrowLeft onClick={handleBack} size={45} />
+      </div>
       <FormProduct
         product={productInfo}
         handleSubmitForm={handleSubmitForm}
