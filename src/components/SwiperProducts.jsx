@@ -19,27 +19,39 @@ import Link from "next/link";
 function SwiperProducts() {
   const { data, isLoading } = useGetProducts();
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   if (isLoading) return <Loading />;
   return (
     <section className="w-full bg-green-100 p-4 rounded-xl">
       <Swiper
         spaceBetween={5}
-        slidesPerView={6}
-        navigation={true}
-        // centeredSlides={true}
-        watchOverflow={true}
-        resistanceRatio={0}
-        freeMode={true}
-        modules={[Autoplay, Pagination, Navigation, FreeMode]}
-        className="h-full"
+        slidesPerView={1}
+        breakpoints={{
+          0: {
+            slidesPerView: 1,
+          },
+          400: {
+            slidesPerView: 2,
+          },
+          639: {
+            slidesPerView: 3,
+          },
+          865: {
+            slidesPerView: 4,
+          },
+          1000: {
+            slidesPerView: 5,
+          },
+          1500: {
+            slidesPerView: 6,
+          },
+          1700: {
+            slidesPerView: 7,
+          },
+        }}
       >
         <SwiperSlide className="flex flex-col !h-auto">
           <div className="bg-red-400 flex flex-col h-full rounded-r-3xl">
-            <Image src={amzing} alt="" className="w-auto h-full" />
+            <Image src={amzing} alt="" className=" w-auto h-full" />
           </div>
         </SwiperSlide>
         {data.products.map((product) => {

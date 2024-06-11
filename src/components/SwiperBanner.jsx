@@ -26,24 +26,25 @@ function SwiperBanner() {
         }}
         navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
+        className="h-80 lg:h-auto"
       >
         <SwiperSlide>
-          <Image src={banner_1} alt="" />
+          <Image src={banner_1} alt="" className="h-full object-cover" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={banner_2} alt="" />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Image src={banner_3} alt="" />
+          <Image src={banner_2} alt="" className="h-full object-cover" />
         </SwiperSlide>
 
         <SwiperSlide>
-          <Image src={banner_4} alt="" />
+          <Image src={banner_3} alt="" className="h-full object-cover" />
         </SwiperSlide>
 
         <SwiperSlide>
-          <Image src={banner_5} alt="" />
+          <Image src={banner_4} alt="" className="h-full object-cover" />
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <Image src={banner_5} alt="" className="h-full object-cover" />
         </SwiperSlide>
       </Swiper>
     </section>

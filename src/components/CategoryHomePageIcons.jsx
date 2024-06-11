@@ -21,7 +21,7 @@ import {
 
 function CategoryHomePageIcons() {
   return (
-    <div className="flex lg:grid lg:grid-cols-8 p-4 flex-wrap">
+    <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 p-4">
       <div className="flex flex-col items-center max-w-28">
         <Link href="/products">
           <Image

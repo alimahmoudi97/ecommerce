@@ -12,7 +12,7 @@ function SwiperProductsCart({ product }) {
             <img
               src={product.imageLink}
               alt=""
-              className="w-full h-full object-center "
+              className=" w-full h-full object-center "
             />
           </div>
         </div>

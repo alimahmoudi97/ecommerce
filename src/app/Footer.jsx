@@ -15,7 +15,7 @@ function Footer() {
   return (
     <div className="border-t-2 mt-8">
       <div className="container max-w-screen-2xl w-full mx-auto">
-        <div className="flex justify-evenly flex-wrap my-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 flex-wrap my-8">
           <div className="flex flex-col items-center">
             <Image src={expressDelivery} alt="" />
             <span>امکان تحویل اکسپرس</span>

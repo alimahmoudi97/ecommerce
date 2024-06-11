@@ -16,7 +16,7 @@ export default function Home() {
         <SwiperProducts />
       </div>
       <h2 className="font-bold text-2xl">خرید بر اساس دسته بندی</h2>
-      <div className="container overflow-auto">
+      <div className="container mx-auto overflow-auto">
         <CategoryHomePageIcons />
       </div>
     </div>
