@@ -13,7 +13,7 @@ export function useUser() {
     queryKey: ["user"],
     queryFn: getUserProfile,
     initialData: () => {},
-    retry: false,
+    // retry: false,
     refetchOnWindowFocus: true,
   });
   const profile = data?.data || {};

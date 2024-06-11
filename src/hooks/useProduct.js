@@ -19,6 +19,7 @@ export function useGetProductById(id) {
   return useQuery({
     queryKey: ["product", id],
     queryFn: () => getProductById(id),
+    refetchOnWindowFocus: true,
   });
 }
 

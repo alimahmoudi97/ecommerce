@@ -39,7 +39,7 @@ function ProductCart({ product }) {
     <div className="border border-secondary-100 border-opacity-50 rounded-2xl col-span-1 p-2  shadow-lg flex flex-col gap-4 hover:scale-105 transition-all ease-in-out">
       {/* <img src={product?.imageLink} alt="" /> */}
       <div className="aspect-w-16 aspect-h-9  mb-4 flex-1">
-        <Link href={`/${product._id}`}>
+        <Link href={`/products/${product._id}`}>
           <img
             src={product?.imageLink}
             alt="nextjs"
