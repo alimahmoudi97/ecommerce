@@ -64,7 +64,7 @@ function AddPage() {
   if (!data) return <Loading />;
 
   return (
-    <div className="max-w-md">
+    <div className="container max-w-md">
       <div className="flex justify-between">
         <h1 className="text-3xl mb-4">اضافه کردن محصول</h1>
         <FiArrowLeft onClick={handleBack} size={45} />

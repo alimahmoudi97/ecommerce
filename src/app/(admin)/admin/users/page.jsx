@@ -14,7 +14,7 @@ function UsersPage() {
   return (
     <div>
       <h1 className="text-3xl mb-4">اطلاعات کاربران</h1>
-      <div>
+      <div className="overflow-auto">
         <Table>
           <Table.Header>
             <th className="table__th">#</th>

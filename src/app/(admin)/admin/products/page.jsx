@@ -19,7 +19,7 @@ function ProductPage() {
           <Link href="products/add">افزودن محصول جدید</Link>
         </span>
       </header>
-      <div>
+      <div className="overflow-auto">
         <Table>
           <Table.Header>
             <th className="table__th">#</th>

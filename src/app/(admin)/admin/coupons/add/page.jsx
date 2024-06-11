@@ -72,7 +72,7 @@ function AddPage() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="max-w-sm">
+    <div className="container md:max-w-md">
       <div className="flex justify-between">
         <h1 className="text-xl font-bold mb-4">اضافه کردن کد تخفیف</h1>
         <FiArrowLeft onClick={handleBack} size={45} />
@@ -133,7 +133,7 @@ function AddPage() {
         <div className="flex flex-col gap-4 mt-4">
           <span>تاریخ انقضا</span>
           <DatePicker
-            inputClass="textField w-[384px]"
+            inputClass="textField max-w-[384px]"
             format="YYYY/MM/DD"
             calendar={persian}
             locale={persian_fa}

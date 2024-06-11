@@ -20,7 +20,7 @@ function CouponsPage() {
           <Link href="coupons/add">افزودن کد تخفیف جدید</Link>
         </span>
       </header>
-      <div>
+      <div className="overflow-auto">
         <Table>
           <Table.Header>
             <th className="table__th">#</th>

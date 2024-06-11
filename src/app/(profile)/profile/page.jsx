@@ -2,7 +2,6 @@
 
 import Loading from "@/components/Loading";
 import Table from "@/components/Table";
-import { useGetAllPayment } from "@/hooks/usePayment";
 import { useUser } from "@/hooks/useUser";
 import {
   toPersianNumbersWithComma,
@@ -12,13 +11,7 @@ import {
 function ProfilePage() {
   const { profile, isLoading } = useUser();
 
-  const { data, isLoading: loadingPayments } = useGetAllPayment();
-
-  const handleClick = () => {
-    console.log("data:", data);
-  };
-
-  if (isLoading || loadingPayments) return <Loading />;
+  if (isLoading) return <Loading />;
 
   return (
     <div>
@@ -48,7 +41,7 @@ function ProfilePage() {
             <th className="table__th">وضعیت</th>
           </Table.Header>
           <Table.Body>
-            {data.payments.map((item, index) => {
+            {profile.payments.map((item, index) => {
               return (
                 <Table.Row key={item._id}>
                   <td className="table__td">{index + 1}</td>

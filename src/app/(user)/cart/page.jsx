@@ -6,14 +6,20 @@ import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 
 import Loading from "@/components/Loading";
 import { useCreatePayment } from "@/hooks/usePayment";
+import toast from "react-hot-toast";
 
 function CartPage() {
   const { profile, isLoading } = useUser();
 
-  const { data, mutate, isPending, isError } = useCreatePayment();
+  const { data, mutateAsync, isPending, isError } = useCreatePayment();
 
-  const handlePayment = () => {
-    mutate();
+  const handlePayment = async () => {
+    try {
+      const response = await mutateAsync();
+      toast.success(response.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
   };
 
   if (isLoading) return <Loading width="80" height="80" />;
@@ -58,7 +64,7 @@ function CartPage() {
               </span>
             </div>
             <button className="btn btn--primary" onClick={handlePayment}>
-              {isError || isLoading ? <Loading /> : "ثبت سفارش"}
+              {isLoading || isError ? <Loading /> : "ثبت سفارش"}
             </button>
           </div>
         </div>

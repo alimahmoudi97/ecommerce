@@ -27,7 +27,7 @@ function CouponTableRow({ coupon, index }) {
   return (
     <Table.Row>
       <td className="table__td">{index + 1}</td>
-      <td className="table__td font-bold">{coupon.code} </td>
+      <td className="table__td font-bold whitespace-nowrap">{coupon.code} </td>
       <td className="table__td">{coupon.type} </td>
       <td className="table__td">{coupon.amount}</td>
       <td className="table__td">

@@ -19,7 +19,7 @@ function CategoryPage() {
           <Link href="category/add">افزودن دسته بندی جدید</Link>
         </span>
       </header>
-      <div>
+      <div className="overflow-auto">
         <Table>
           <Table.Header>
             <th className="table__th">#</th>
