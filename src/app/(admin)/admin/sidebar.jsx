@@ -24,7 +24,7 @@ function Sidebar() {
 
   return (
     <>
-      <ul className="hidden lg:flex flex-col space-y-6 text-base bg-secondary-50/25">
+      <ul className="hidden lg:flex flex-col space-y-6 text-base bg-secondary-50/25 h-screen">
         <li>
           <Link href="/">صفحه اصلی</Link>
         </li>

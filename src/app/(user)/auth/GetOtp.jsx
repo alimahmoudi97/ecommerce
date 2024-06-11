@@ -1,8 +1,7 @@
 "use client";
 
+import TextField from "@/components/TextField";
 import { getOtp } from "@/services/authService";
-import TextField from "../../components/TextField";
-import { useState } from "react";
 
 function GetOtp({ onStep, phoneNumber, setPhoneNumber }) {
   // const [phoneNumber, setPhoneNumber] = useState("");

@@ -22,7 +22,7 @@ function RootLayout({ children }) {
               fontSize: "1.2rem",
             }}
           />
-          <div className="">
+          <div className="h-screen">
             <div className="grid grid-cols-1 lg:grid-cols-5">
               <Sidebar />
               <main className="lg:col-span-4">{children}</main>
