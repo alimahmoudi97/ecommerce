@@ -22,7 +22,7 @@ function ProductTableRow({ product, index }) {
     }
   };
 
-  if (isPending) return <Loading />;
+  if (!data) return <Loading />;
   return (
     <Table.Row>
       <td className="table__td">{index + 1}</td>
