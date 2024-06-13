@@ -10,7 +10,7 @@ function TextField({
 }) {
   return (
     <div className="flex flex-col gap-2 mb-4">
-      <label htmlFor={name} className="text-xl">
+      <label htmlFor={name} className="text-base">
         {lable}
       </label>
       <input

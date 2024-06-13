@@ -73,6 +73,12 @@
   .badge--error {
     @apply text-secondary-0 bg-rose-600;
   }
+  .otp--container {
+    @apply flex flex-row-reverse justify-center gap-1 mt-8;
+  }
+  .otp--input {
+    @apply min-w-10 py-3 px-1 text-xl border rounded-lg;
+  }
 }
 
 * {
