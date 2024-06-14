@@ -10,7 +10,7 @@ import { useQueryClient } from "@tanstack/react-query";
 
 function ProductTableRow({ product, index }) {
   const queryClient = useQueryClient();
-  const { data, isPending, mutateAsync } = useRemoveProduct();
+  const { mutateAsync } = useRemoveProduct();
 
   const handleClick = async () => {
     try {
@@ -22,16 +22,15 @@ function ProductTableRow({ product, index }) {
     }
   };
 
-  if (!data) return <Loading />;
   return (
     <Table.Row>
       <td className="table__td">{index + 1}</td>
-      <td className="table__td font-bold">{product.title} </td>
-      <td className="table__td">{product.category.title}</td>
-      <td className="table__td">{product.price}</td>
-      <td className="table__td">{product.discount}</td>
-      <td className="table__td">{product.offPrice}</td>
-      <td className="table__td">{product.countInStock}</td>
+      <td className="table__td font-bold">{product?.title} </td>
+      <td className="table__td">{product?.category?.title}</td>
+      <td className="table__td">{product?.price}</td>
+      <td className="table__td">{product?.discount}</td>
+      <td className="table__td">{product?.offPrice}</td>
+      <td className="table__td">{product?.countInStock}</td>
       <td className="table__td">
         <span className="flex gap-4">
           <button onClick={handleClick}>
@@ -40,7 +39,7 @@ function ProductTableRow({ product, index }) {
           <Link href="#">
             <IoMdEye className="w-6 h-6 text-primary-900" />
           </Link>
-          <Link href={`/admin/products/edit/${product._id}`}>
+          <Link href={`/admin/products/edit/${product?._id}`}>
             <CiEdit className="w-6 h-6 text-secondary-700" />
           </Link>
         </span>

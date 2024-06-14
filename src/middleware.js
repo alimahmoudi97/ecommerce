@@ -4,7 +4,7 @@ import { middlewareAuth } from "./utils/middlewareAuth";
 export async function middleware(req) {
   const url = req.url;
   const pathname = req.nextUrl.pathname;
-  console.log(req.cookies);
+  // console.log(req.cookies);
   // console.log(req.url, req.nextUrl.pathname);
   if (pathname.startsWith("/profile")) {
     const user = await middlewareAuth(req);

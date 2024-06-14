@@ -11,7 +11,8 @@ export function useGetProducts() {
   return useQuery({
     queryKey: ["products"],
     queryFn: getProducts,
-    refetchOnWindowFocus,
+    retry: false,
+    refetchOnWindowFocus: true,
   });
 }
 

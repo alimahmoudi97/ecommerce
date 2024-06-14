@@ -79,11 +79,11 @@ function EditPage() {
       );
       setSelectedTags(data.product.tags);
       setSelectedOption({
-        value: data.product.category._id,
-        label: data.product.category.title,
+        value: data?.product?.category?._id,
+        label: data?.product?.category?.title,
       });
-      console.log("SelectedOptions:", selectedOption);
-      console.log("data Products:", data.product);
+      // console.log("SelectedOptions:", selectedOption);
+      // console.log("data Products:", data.product);
     }
   }, [data]);
 
