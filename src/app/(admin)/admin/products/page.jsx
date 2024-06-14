@@ -5,6 +5,7 @@ import ProductTableRow from "./ProductTableRow";
 import { useGetProducts } from "@/hooks/useProduct";
 import Loading from "@/components/Loading";
 import Link from "next/link";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 function ProductPage() {
   const { data, isLoading } = useGetProducts();
@@ -15,11 +16,14 @@ function ProductPage() {
 
   return (
     <div>
-      <header className="flex justify-between">
-        <h1 className="text-3xl mb-4">اطلاعات کاربران</h1>
-        <span className="text-primary-700 text-xl mb-4">
-          <Link href="products/add">افزودن محصول جدید</Link>
-        </span>
+      <header className="flex justify-between border-b">
+        <h1 className="text-3xl mb-4">اطلاعات محصولات</h1>
+        <Link href="products/add">
+          <div className="text-primary-900 text-xl mb-4 flex gap-2 items-center">
+            <span>افزودن محصول جدید</span>
+            <IoIosAddCircleOutline size={24} />
+          </div>
+        </Link>
       </header>
       <div className="overflow-auto">
         <Table>

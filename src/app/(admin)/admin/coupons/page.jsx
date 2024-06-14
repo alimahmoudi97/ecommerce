@@ -6,6 +6,7 @@ import { useCategory } from "@/hooks/useCategory";
 import Loading from "@/components/Loading";
 import { useGetCoupons } from "@/hooks/useCoupon";
 import Link from "next/link";
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 function CouponsPage() {
   const { data, isLoading } = useGetCoupons();
@@ -14,11 +15,14 @@ function CouponsPage() {
 
   return (
     <div>
-      <header className="flex justify-between">
+      <header className="flex justify-between border-b">
         <h1 className="text-3xl mb-4"> کد تخفیف</h1>
-        <span className="text-primary-900 text-xl mb-4">
-          <Link href="coupons/add">افزودن کد تخفیف جدید</Link>
-        </span>
+        <Link href="coupons/add">
+          <div className="text-primary-900 text-xl mb-4 flex gap-2 items-center">
+            <span>افزودن کد تخفیف جدید</span>
+            <IoIosAddCircleOutline size={24} />
+          </div>
+        </Link>
       </header>
       <div className="overflow-auto">
         <Table>
