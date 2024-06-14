@@ -15,7 +15,7 @@ function ProfilePage() {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold">
+      <h1 className=" text-2xl font-bold">
         <span className="text-lg text-primary-700 mx-2">
           {profile.user.name}
         </span>

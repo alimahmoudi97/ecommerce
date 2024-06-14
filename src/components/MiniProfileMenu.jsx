@@ -17,7 +17,7 @@ function MiniProfileMenu({ user, handler }) {
   const handleLogout = () => {
     logout();
     queryClient.removeQueries(["user"]);
-    route.push("/auth");
+    route.replace("/auth");
     route.refresh();
   };
 

@@ -24,10 +24,14 @@ export default function RootLayout({ children }) {
               fontSize: "1.2rem",
             }}
           />
-          <div className="flex flex-col h-screen">
-            <div className="grid grid-cols-1 lg:grid-cols-5">
-              <Sidbar />
-              <main className="lg:col-span-4">{children}</main>
+          <div className="flex flex-col">
+            <div className="lg:container mx-auto grid grid-cols-1 lg:grid-cols-5 gap-4 px-6 py-6">
+              <div className="relative ">
+                <Sidbar />
+              </div>
+              <main className="lg:col-span-4 p-4 border rounded-xl shadow">
+                {children}
+              </main>
             </div>
           </div>
         </Providers>
