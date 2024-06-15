@@ -15,7 +15,7 @@ function Footer() {
   return (
     <div className="border-t-2 mt-8">
       <div className="container max-w-screen-2xl w-full mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 flex-wrap my-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 text-sm my-8">
           <div className="flex flex-col items-center">
             <Image src={expressDelivery} alt="" />
             <span>امکان تحویل اکسپرس</span>
@@ -37,7 +37,7 @@ function Footer() {
             <span>ضمانت اصل بودن کالا</span>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between">
+        <div className="flex flex-wrap justify-between text-sm">
           <div className="flex flex-col gap-2">
             <h3 className="text-xl">با ما همراه باشید</h3>
             <Link className="text-secondary-600" href="">
@@ -88,15 +88,15 @@ function Footer() {
             <div className="flex gap-8 justify-evenly">
               <IoLogoInstagram
                 className="hover:fill-red-500 cursor-pointer"
-                size={50}
+                size={40}
               />
               <FaTwitter
                 className="hover:fill-primary-900 cursor-pointer"
-                size={50}
+                size={40}
               />
               <FaLinkedin
                 className="hover:fill-primary-900 cursor-pointer"
-                size={50}
+                size={40}
               />
             </div>
           </div>

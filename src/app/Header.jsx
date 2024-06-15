@@ -159,9 +159,9 @@ function Header() {
           <div className="p-4 relative" onClick={() => router.refresh()}>
             <Link href="/cart">
               <FaCartShopping size={30} />
-              <span className="absolute top-0 right-0 bg-green-600 text-secondary-0 rounded-full p-1">
-                {cart ? cart.productDetail.length : "0"}
-              </span>
+              <div className="absolute top-0 right-0 bg-green-600 text-secondary-0 rounded-full w-6 h-6 p-1 flex items-center justify-center">
+                <span>{cart ? cart.productDetail.length : "0"}</span>
+              </div>
             </Link>
           </div>
         </div>
