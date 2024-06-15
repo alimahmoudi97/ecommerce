@@ -24,7 +24,6 @@ function SwiperBanner() {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
         modules={[Autoplay, Pagination, Navigation]}
         className="h-80 lg:h-auto"
       >
