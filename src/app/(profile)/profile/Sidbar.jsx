@@ -56,7 +56,7 @@ function Sidbar() {
             </Link>
           </li>
           <li className="px-2">
-            <Link href="#">
+            <Link href="/profile/payments">
               <div className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50">
                 <BsBag />
                 <span>سفارشات</span>
@@ -126,7 +126,7 @@ function HamburgerMenu({ handleDrawer, handleLogout }) {
           </li>
           <li>
             <Link
-              href="#"
+              href="/profile/payments"
               className="hover:bg-primary-200 rounded-lg p-4"
               onClick={() => handleDrawer(false)}
             >
