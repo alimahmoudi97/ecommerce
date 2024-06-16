@@ -3,6 +3,7 @@
 import Loading from "@/components/Loading";
 import Table from "@/components/Table";
 import { useUser } from "@/hooks/useUser";
+import { persianDate } from "@/utils/persianDate";
 import {
   toPersianNumbers,
   toPersianNumbersWithComma,
@@ -22,11 +23,8 @@ function PaymentsPage() {
       </h1>
       <span className="text-xl">
         تاریخ پیوستن:
-        {new Date(profile.user.createdAt).toLocaleDateString("fa-IR")}
+        {persianDate(profile.user.createdAt)}
       </span>
-      {/* <button className="btn btn--primary" onClick={handleClick}>
-        get User
-      </button> */}
 
       <div className="shadow-sm overflow-auto">
         <Table>

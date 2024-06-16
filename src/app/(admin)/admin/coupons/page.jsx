@@ -2,7 +2,6 @@
 
 import Table from "@/components/Table";
 import CouponTableRow from "./CouponTableRow";
-import { useCategory } from "@/hooks/useCategory";
 import Loading from "@/components/Loading";
 import { useGetCoupons } from "@/hooks/useCoupon";
 import Link from "next/link";

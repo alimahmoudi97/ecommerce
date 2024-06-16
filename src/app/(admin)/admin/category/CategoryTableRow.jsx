@@ -9,7 +9,7 @@ import { IoMdEye } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 
 function CategoryTableRow({ category, index }) {
-  const { data, isPending, mutateAsync } = useRemoveCategory(category._id);
+  const { isPending, mutateAsync } = useRemoveCategory(category._id);
 
   const handleClick = async () => {
     try {

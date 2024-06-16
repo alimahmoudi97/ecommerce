@@ -9,8 +9,9 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 
 function CategoryPage() {
   const { data } = useCategory();
+  const { categories } = data || {};
 
-  if (!data) return <Loading />;
+  if (!categories) return <Loading />;
 
   return (
     <div>
@@ -34,7 +35,7 @@ function CategoryPage() {
             <th className="table__th">عملیات</th>
           </Table.Header>
           <Table.Body>
-            {data.categories.map((category, index) => {
+            {categories.map((category, index) => {
               return (
                 <CategoryTableRow
                   key={category._id}

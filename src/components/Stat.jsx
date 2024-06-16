@@ -8,16 +8,16 @@ const colors = {
 
 function Stat({ icon, value, title, color }) {
   return (
-    <div className="col-span-1 grid grid-rows-2 grid-cols-[6.4rem_1fr] gap-4">
+    <div className="col-span-1 grid grid-rows-2 grid-cols-[4.6rem_1fr] lg:grid-cols-[5.4rem_1fr] gap-4">
       <div
-        className={`row-span-2 flex items-center justify-center p-4 rounded-full ${colors[color]}`}
+        className={`row-span-2 flex items-center justify-center p-1 lg:p-4 rounded-full ${colors[color]}`}
       >
         {icon}
       </div>
       <h5 className="font-bold text-secondary-500 text-lg self-center">
         {title}
       </h5>
-      <p className="text-2xl font-bold text-secondary-900">
+      <p className="text-xl font-bold text-secondary-900">
         {toPersianNumbersWithComma(value)}
       </p>
     </div>

@@ -21,19 +21,19 @@ function Stats() {
       <Stat
         color="orange"
         title="تعداد کاربران"
-        icon={<FiUsers size={80} />}
+        icon={<FiUsers className="w-12 h-12" />}
         value={users?.users.length || 0}
       />
       <Stat
         color="primary"
         title="تعداد محصولات"
-        icon={<AiOutlineProduct size={80} />}
+        icon={<AiOutlineProduct className="w-12 h-12" />}
         value={products?.products.length || 0}
       />
       <Stat
         color="green"
         title="تعداد تراکنش ها"
-        icon={<BsBag size={80} />}
+        icon={<BsBag className="w-12 h-12" />}
         value={50}
       />
     </div>

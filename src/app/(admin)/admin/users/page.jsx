@@ -4,7 +4,6 @@ import Table from "@/components/Table";
 import UserTableRow from "./UserTableRow";
 import { useUsers } from "@/hooks/useUser";
 import Loading from "@/components/Loading";
-import { useEffect } from "react";
 
 function UsersPage() {
   const { data, isLoading } = useUsers();

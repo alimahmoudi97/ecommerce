@@ -2,7 +2,6 @@ import Loading from "@/components/Loading";
 import Stat from "@/components/Stat";
 import { useUser } from "@/hooks/useUser";
 import { totalPricePayment } from "@/utils/totalPricePayment";
-import { AiOutlineProduct } from "react-icons/ai";
 import { BsBag, BsCalendar2Date } from "react-icons/bs";
 import { FiUsers } from "react-icons/fi";
 
@@ -17,19 +16,19 @@ function Stats() {
       <Stat
         color="green"
         title=" خرید ها"
-        icon={<BsBag size={80} />}
+        icon={<BsBag className="w-9 h-9" />}
         value={profile?.payments.length}
       />
       <Stat
         color="orange"
         title="مبلغ خرید"
-        icon={<FiUsers size={80} />}
+        icon={<FiUsers className="w-9 h-9" />}
         value={totalPricePayment(profile?.payments)}
       />
       <Stat
         color="primary"
         title="تاریخ پیوستن "
-        icon={<BsCalendar2Date size={80} />}
+        icon={<BsCalendar2Date className="w-9 h-9" />}
         value={new Date(profile.user.createdAt).toLocaleDateString("fa-IR")}
       />
     </div>

@@ -9,33 +9,29 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { FiArrowLeft } from "react-icons/fi";
 
+const initialProductInfo = {
+  title: "",
+  description: "",
+  slug: "",
+  brand: "",
+  price: "",
+  discount: "",
+  offPrice: "",
+  countInStock: "",
+  imageLink: "",
+};
+
 function AddPage() {
   const router = useRouter();
   const { data, isLoading } = useCategory();
-  const { isPending, mutateAsync } = useAddProduct();
-  const [productInfo, setProductInfo] = useState({
-    title: "",
-    description: "",
-    slug: "",
-    brand: "",
-    price: "",
-    discount: "",
-    offPrice: "",
-    countInStock: "",
-    imageLink: "",
-  });
-
+  const { categories } = data || {};
+  const { isPending: loading, mutateAsync } = useAddProduct();
+  const [product, setProduct] = useState(initialProductInfo);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const options = data?.categories.map((category) => {
-    return {
-      value: category._id,
-      label: category.title,
-    };
-  });
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handlerAddProduct = (e) => {
-    setProductInfo({
+    setProduct({
       ...productInfo,
       [e.target.name]: e.target.value,
     });
@@ -51,17 +47,16 @@ function AddPage() {
       const res = await mutateAsync({
         ...productInfo,
         tags: selectedTags,
-        category: selectedOption.value,
+        category: selectedCategory.value,
       });
       toast.success(res.message);
       router.push("/admin/products");
-      // console.log(res);
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  if (!data) return <Loading />;
+  if (isLoading) return <Loading />;
 
   return (
     <div className="container max-w-md">
@@ -70,14 +65,15 @@ function AddPage() {
         <FiArrowLeft onClick={handleBack} size={45} />
       </div>
       <FormProduct
-        product={productInfo}
+        product={product}
         handleSubmitForm={handleSubmitForm}
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
         selectedTags={selectedTags}
         setSelectedTags={setSelectedTags}
         handlerAddProduct={handlerAddProduct}
-        options={options}
+        categories={categories}
+        isLoading={loading}
       />
     </div>
   );

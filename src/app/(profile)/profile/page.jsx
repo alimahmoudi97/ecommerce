@@ -1,12 +1,7 @@
 "use client";
 
 import Loading from "@/components/Loading";
-import Table from "@/components/Table";
 import { useUser } from "@/hooks/useUser";
-import {
-  toPersianNumbersWithComma,
-  toPersianNumbers,
-} from "@/utils/toPersianNumbers";
 import Stats from "./Stats";
 
 function ProfilePage() {

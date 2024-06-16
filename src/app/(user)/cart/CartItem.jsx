@@ -1,13 +1,11 @@
 "use client";
 
 import { addToCart, removeFromCart } from "@/services/cartService";
-import { getProductById } from "@/services/productService";
 import {
   toPersianNumbers,
   toPersianNumbersWithComma,
 } from "@/utils/toPersianNumbers";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { IoMdAdd } from "react-icons/io";
 

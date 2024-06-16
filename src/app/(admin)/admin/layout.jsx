@@ -23,7 +23,7 @@ function RootLayout({ children }) {
             }}
           />
           <div className="h-screen">
-            <div className="lg:container mx-auto grid grid-cols-1 lg:grid-cols-5 gap-4 px-6 py-6">
+            <div className="lg:container mx-auto grid grid-cols-1 lg:grid-cols-5 gap-4 lg:px-6 lg:py-6">
               <div className="relative ">
                 <Sidebar />
               </div>

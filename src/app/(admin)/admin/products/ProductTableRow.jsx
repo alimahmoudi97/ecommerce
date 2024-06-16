@@ -4,7 +4,6 @@ import { MdDelete } from "react-icons/md";
 import { IoMdEye } from "react-icons/io";
 import Link from "next/link";
 import { useRemoveProduct } from "@/hooks/useProduct";
-import Loading from "@/components/Loading";
 import toast from "react-hot-toast";
 import { useQueryClient } from "@tanstack/react-query";
 
@@ -12,7 +11,7 @@ function ProductTableRow({ product, index }) {
   const queryClient = useQueryClient();
   const { mutateAsync } = useRemoveProduct();
 
-  const handleClick = async () => {
+  const handleDeleteProduct = async () => {
     try {
       const response = await mutateAsync(product._id);
       toast.success(response.message);
@@ -33,8 +32,8 @@ function ProductTableRow({ product, index }) {
       <td className="table__td">{product?.countInStock}</td>
       <td className="table__td">
         <span className="flex gap-4">
-          <button onClick={handleClick}>
-            <MdDelete className="w-6 h-6 text-red-700" />
+          <button onClick={handleDeleteProduct}>
+            <MdDelete className="w-6 h-6 text-rose-500" />
           </button>
           <Link href="#">
             <IoMdEye className="w-6 h-6 text-primary-900" />

@@ -3,8 +3,6 @@ import "../../globals.css";
 import vazirFont from "@/constants/localFonts";
 import { Toaster } from "react-hot-toast";
 import Providers from "../../Providers";
-import Header from "../../Header";
-import Footer from "../../Footer";
 import Sidbar from "./Sidbar";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +23,7 @@ export default function RootLayout({ children }) {
             }}
           />
           <div className="flex flex-col">
-            <div className="lg:container mx-auto grid grid-cols-1 lg:grid-cols-5 gap-4 px-6 py-6">
+            <div className="lg:container mx-auto w-full grid grid-cols-1 lg:grid-cols-5 gap-4 lg:px-6 lg:py-6">
               <div className="relative ">
                 <Sidbar />
               </div>

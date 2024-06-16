@@ -1,6 +1,7 @@
 import Loading from "@/components/Loading";
 import Table from "@/components/Table";
 import { useRemoveCoupon } from "@/hooks/useCoupon";
+import { persianDate } from "@/utils/persianDate";
 import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import toast from "react-hot-toast";
@@ -10,9 +11,9 @@ import { MdDelete } from "react-icons/md";
 
 function CouponTableRow({ coupon, index }) {
   const queryClient = useQueryClient();
-  const { data, isPending, mutateAsync } = useRemoveCoupon(coupon._id);
+  const { isPending, mutateAsync } = useRemoveCoupon(coupon._id);
 
-  const handleClick = async () => {
+  const handleDeleteCoupon = async () => {
     try {
       const response = await mutateAsync();
       toast.success(response.message);
@@ -37,13 +38,11 @@ function CouponTableRow({ coupon, index }) {
       </td>
       <td className="table__td">{coupon.usageCount}</td>
       <td className="table__td">{coupon.usageLimit}</td>
-      <td className="table__td">
-        {new Date(coupon.expireDate).toLocaleDateString("fa-IR")}
-      </td>
+      <td className="table__td">{persianDate(coupon.expireDate)}</td>
       <td className="table__td">
         <span className="flex gap-4">
-          <button onClick={handleClick}>
-            <MdDelete className="w-6 h-6 text-red-700" />
+          <button onClick={handleDeleteCoupon}>
+            <MdDelete className="w-6 h-6 text-rose-500" />
           </button>
           <Link href="#">
             <IoMdEye className="w-6 h-6 text-primary-900" />

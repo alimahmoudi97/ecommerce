@@ -5,11 +5,9 @@ import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { BiExit } from "react-icons/bi";
-import { BsBag } from "react-icons/bs";
 import { FaRegUser } from "react-icons/fa";
-import { IoHomeOutline } from "react-icons/io5";
-import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { IoBagOutline, IoEnterOutline, IoHomeOutline } from "react-icons/io5";
+import { LuPanelRight } from "react-icons/lu";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 function Sidbar() {
@@ -34,7 +32,7 @@ function Sidbar() {
           <li className=" px-2">
             <Link href="/">
               <div className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50">
-                <IoHomeOutline size={30} />
+                <IoHomeOutline size={30} className="stroke-primary-900" />
                 <span>صفحه اصلی</span>
               </div>
             </Link>
@@ -42,7 +40,7 @@ function Sidbar() {
           <li className=" px-2">
             <Link href="/profile">
               <div className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50">
-                <MdOutlineSpaceDashboard size={30} />
+                <LuPanelRight size={30} className="stroke-green-600" />
                 <span>داشبورد</span>
               </div>
             </Link>
@@ -50,7 +48,7 @@ function Sidbar() {
           <li className=" px-2">
             <Link href="/profile/me">
               <div className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50">
-                <FaRegUser />
+                <FaRegUser size={30} />
                 <span>اطلاعات حساب کاربردی</span>
               </div>
             </Link>
@@ -58,7 +56,7 @@ function Sidbar() {
           <li className="px-2">
             <Link href="/profile/payments">
               <div className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50">
-                <BsBag />
+                <IoBagOutline size={30} className="stroke-primary-900" />
                 <span>سفارشات</span>
               </div>
             </Link>
@@ -66,7 +64,7 @@ function Sidbar() {
           <li className="px-2">
             <div onClick={handleLogout} className="cursor-pointer">
               <div className="flex items-center py-3 gap-2  hover:bg-secondary-50">
-                <BiExit size={20} />
+                <IoEnterOutline size={30} className="stroke-rose-600" />
                 <span>خروج از حساب کاربری</span>
               </div>
             </div>
@@ -98,48 +96,59 @@ function HamburgerMenu({ handleDrawer, handleLogout }) {
       <div className="mt-10">
         <ul className="flex flex-col space-y-6 text-base w-full">
           <li>
-            <Link
-              href="/"
-              className="hover:bg-primary-200 rounded-lg p-4"
-              onClick={() => handleDrawer(false)}
-            >
-              صفحه اصلی
+            <Link href="/">
+              <div
+                className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50"
+                onClick={() => handleDrawer(false)}
+              >
+                <IoHomeOutline size={30} className="stroke-primary-900" />
+                <span>خانه</span>
+              </div>
             </Link>
           </li>
           <li>
-            <Link
-              href="/profile"
-              className="hover:bg-primary-200 rounded-lg p-4"
-              onClick={() => handleDrawer(false)}
-            >
-              داشبورد
+            <Link href="/profile">
+              <div
+                className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50"
+                onClick={() => handleDrawer(false)}
+              >
+                <LuPanelRight size={30} className="stroke-green-600" />
+                <span>داشبورد</span>
+              </div>
             </Link>
           </li>
           <li>
-            <Link
-              href="/profile/me"
-              className="hover:bg-primary-200 rounded-lg p-4"
-              onClick={() => handleDrawer(false)}
-            >
-              اطلاعات کاربردی
+            <Link href="/profile/me">
+              <div
+                className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50"
+                onClick={() => handleDrawer(false)}
+              >
+                <FaRegUser size={30} />
+                <span> اطلاعات کاربردی</span>
+              </div>
             </Link>
           </li>
           <li>
-            <Link
-              href="/profile/payments"
-              className="hover:bg-primary-200 rounded-lg p-4"
-              onClick={() => handleDrawer(false)}
-            >
-              سفارشات
+            <Link href="/profile/payments">
+              <div
+                className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50"
+                onClick={() => handleDrawer(false)}
+              >
+                <IoBagOutline size={30} className="stroke-primary-900" />
+                <span>سفارشات</span>
+              </div>
             </Link>
           </li>
           <li>
-            <button
-              onClick={handleLogout}
-              className="hover:bg-primary-200 rounded-lg p-4"
-            >
-              خروج از حساب کاربری
-            </button>
+            <div onClick={handleLogout} className="cursor-pointer">
+              <div
+                className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50"
+                onClick={() => handleDrawer(false)}
+              >
+                <IoEnterOutline size={30} className="stroke-rose-600" />
+                <span>خروج از حساب کاربری</span>
+              </div>
+            </div>
           </li>
         </ul>
       </div>

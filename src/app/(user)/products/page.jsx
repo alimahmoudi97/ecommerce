@@ -6,7 +6,6 @@ import { getProducts } from "@/services/productService";
 import { toStringCookies } from "@/utils/toStringCookies";
 import { cookies } from "next/headers";
 import { getCategories } from "@/services/categoryService";
-import { FaSortAmountDown } from "react-icons/fa";
 import Sort from "@/components/Sort";
 import MobileCategory from "@/components/MobileCategory";
 

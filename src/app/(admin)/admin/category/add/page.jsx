@@ -8,7 +8,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { FiArrowLeft } from "react-icons/fi";
 
-const options = [
+const optionTypes = [
   { value: "product", label: "محصول" },
   { value: "post", label: "پست" },
   { value: "ticket", label: "تیکت" },
@@ -19,31 +19,30 @@ function AddPage() {
   const router = useRouter();
   const { data, isLoading } = useCategory();
   const { isPending, mutateAsync } = useAddCategory();
-  const [categoryInfo, setCategoryInfo] = useState({
+  const [selectedOptionType, setSelectedOptionType] = useState(null);
+  const [category, setCategory] = useState({
     title: "",
     englishTitle: "",
     description: "",
   });
 
-  const [selectedOption, setSelectedOption] = useState(null);
-
-  const handlerAddCategory = (e) => {
-    setCategoryInfo({
-      ...categoryInfo,
+  const addCategoryHandler = (e) => {
+    setCategory({
+      ...category,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleBack = () => {
+  const backNavigationHandler = () => {
     router.back();
   };
 
-  const handleSubmitForm = async (e) => {
+  const submitFormHandler = async (e) => {
     e.preventDefault();
     try {
       const res = await mutateAsync({
-        ...categoryInfo,
-        type: selectedOption.value,
+        ...category,
+        type: selectedOptionType.value,
       });
       toast.success(res.message);
       router.push("/admin/category");
@@ -59,15 +58,15 @@ function AddPage() {
     <div className="max-w-md">
       <div className="flex justify-between">
         <h1 className="text-3xl mb-4">اضافه کردن دسته بندی</h1>
-        <FiArrowLeft onClick={handleBack} size={45} />
+        <FiArrowLeft onClick={backNavigationHandler} size={45} />
       </div>
       <FormCategory
-        category={categoryInfo}
-        handleSubmitForm={handleSubmitForm}
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
-        handlerAddCategory={handlerAddCategory}
-        options={options}
+        category={category}
+        submitFormHandler={submitFormHandler}
+        selectedOptionType={selectedOptionType}
+        setSelectedOptionType={setSelectedOptionType}
+        addCategoryHandler={addCategoryHandler}
+        optionTypes={optionTypes}
       />
     </div>
   );

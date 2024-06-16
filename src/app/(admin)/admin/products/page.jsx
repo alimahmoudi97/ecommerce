@@ -9,10 +9,9 @@ import { IoIosAddCircleOutline } from "react-icons/io";
 
 function ProductPage() {
   const { data, isLoading } = useGetProducts();
+  const { products } = data || {};
 
   if (isLoading) return <Loading />;
-
-  console.log("product in admin products:", data);
 
   return (
     <div>
@@ -38,7 +37,7 @@ function ProductPage() {
             <th className="table__th">عملیات</th>
           </Table.Header>
           <Table.Body>
-            {data?.products.map((product, index) => {
+            {products.map((product, index) => {
               return (
                 <ProductTableRow
                   key={product._id}

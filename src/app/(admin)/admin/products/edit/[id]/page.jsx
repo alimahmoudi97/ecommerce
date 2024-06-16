@@ -9,27 +9,29 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FiArrowLeft } from "react-icons/fi";
 
+const initialFormProduct = {
+  title: "",
+  description: "",
+  slug: "",
+  brand: "",
+  price: 0,
+  discount: 0,
+  offPrice: 0,
+  countInStock: 0,
+  imageLink: "",
+};
+
 function EditPage() {
   const router = useRouter();
   const params = useParams();
   const { data, isLoading, isFetched } = useGetProductById(params.id);
-  const { data: categories } = useCategory();
+  const { product } = data || {};
+  const { data: dataCategory } = useCategory();
+  const { categories } = dataCategory || {};
   const { mutateAsync } = useUpdateProduct(params.id);
-  const [productInfo, setProductInfo] = useState({
-    title: "",
-    description: "",
-    slug: "",
-    brand: "",
-    price: 0,
-    discount: 0,
-    offPrice: 0,
-    countInStock: 0,
-    imageLink: "",
-  });
-
+  const [productInfo, setProductInfo] = useState(initialFormProduct);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [options, setOptions] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handlerAddProduct = (e) => {
     setProductInfo({
@@ -44,9 +46,10 @@ function EditPage() {
       const res = await mutateAsync({
         ...productInfo,
         tags: selectedTags,
-        category: selectedOption.value,
+        category: selectedCategory.value,
       });
       toast.success(res.message);
+      router.push("/admin/products");
     } catch (error) {
       console.log(error.message);
     }
@@ -57,39 +60,26 @@ function EditPage() {
   };
 
   useEffect(() => {
-    if (!isLoading && data.product) {
+    if (!isLoading && product) {
       setProductInfo({
-        title: data.product.title,
-        description: data.product.description,
-        slug: data.product.slug,
-        brand: data.product.brand,
-        price: data.product.price,
-        discount: data.product.discount,
-        offPrice: data.product.offPrice,
-        countInStock: data.product.countInStock,
-        imageLink: data.product.imageLink,
+        title: product.title,
+        description: product.description,
+        slug: product.slug,
+        brand: product.brand,
+        price: product.price,
+        discount: product.discount,
+        offPrice: product.offPrice,
+        countInStock: product.countInStock,
+        imageLink: product.imageLink,
       });
-      setOptions(
-        categories?.categories.map((category) => {
-          return {
-            value: category._id,
-            label: category.title,
-          };
-        })
-      );
-      setSelectedTags(data.product.tags);
-      setSelectedOption({
-        value: data?.product?.category?._id,
-        label: data?.product?.category?.title,
+      setSelectedTags(product.tags);
+      setSelectedCategory({
+        value: product?.category?._id,
+        label: product?.category?.title,
       });
-      // console.log("SelectedOptions:", selectedOption);
-      // console.log("data Products:", data.product);
     }
-  }, [data]);
+  }, [product]);
 
-  // useEffect(() => {
-  //   console.log("data Products:", data.product);
-  // }, [productInfo]);
   if (isLoading) return <Loading />;
 
   return (
@@ -101,12 +91,12 @@ function EditPage() {
       <FormProduct
         product={productInfo}
         handleSubmitForm={handleSubmitForm}
-        selectedOption={selectedOption}
-        setSelectedOption={setSelectedOption}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
         selectedTags={selectedTags}
         setSelectedTags={setSelectedTags}
         handlerAddProduct={handlerAddProduct}
-        options={options}
+        categories={categories}
       />
     </div>
   );

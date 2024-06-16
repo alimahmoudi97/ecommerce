@@ -4,6 +4,7 @@ import { logout } from "@/services/authService";
 import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { IoHomeOutline } from "react-icons/io5";
 
 function Drawer({ handleDrawer }) {
   const route = useRouter();
@@ -26,12 +27,14 @@ function Drawer({ handleDrawer }) {
       <div className="mt-10">
         <ul className="flex flex-col space-y-6 text-base w-full">
           <li>
-            <Link
-              href="/"
-              className="hover:bg-primary-200 rounded-lg p-4"
-              onClick={() => handleDrawer(false)}
-            >
-              صفحه اصلی
+            <Link href="/">
+              <div
+                className="flex items-center py-3 gap-2 border-b border-secondary-100 hover:bg-secondary-50"
+                onClick={() => handleDrawer(false)}
+              >
+                <IoHomeOutline size={30} className="stroke-primary-900" />
+                <span>خانه</span>
+              </div>
             </Link>
           </li>
           <li>

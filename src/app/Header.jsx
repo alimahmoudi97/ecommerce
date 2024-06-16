@@ -9,12 +9,9 @@ import { useState } from "react";
 import { TbLogin } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
 import { FaAngleDown, FaRegComment } from "react-icons/fa";
-import { MdKeyboardArrowLeft } from "react-icons/md";
-import { BsBag } from "react-icons/bs";
-import { CiHeart } from "react-icons/ci";
-import { VscBell } from "react-icons/vsc";
-import { BiExit } from "react-icons/bi";
 import MiniProfileMenu from "@/components/MiniProfileMenu";
+import DrawerHeader from "./DrawerHeader";
+import { IoHomeOutline } from "react-icons/io5";
 
 function Header() {
   const { profile, isLoading } = useUser();
@@ -37,95 +34,36 @@ function Header() {
       <div className="block lg:hidden ">
         <RxHamburgerMenu size={45} onClick={() => handleDrawer(true)} />
       </div>
-      {showDrawer && (
-        <div className="bg-secondary-0 z-50 fixed inset-0">
-          <div className="absolute left-0 p-4">
-            <span
-              className="cursor-pointer"
-              onClick={() => handleDrawer(false)}
-            >
-              ❌
-            </span>
-          </div>
-          <div className="mt-10">
-            <ul className="flex flex-col space-y-6 text-base w-full">
-              <li>
-                <Link
-                  href="/"
-                  className="hover:bg-primary-200 rounded-lg p-4"
-                  onClick={() => handleDrawer(false)}
-                >
-                  خانه
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/products"
-                  className="hover:bg-primary-200 rounded-lg p-4"
-                  onClick={() => handleDrawer(false)}
-                >
-                  محصولات
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/profile"
-                  className="hover:bg-primary-200 rounded-lg p-4"
-                  onClick={() => handleDrawer(false)}
-                >
-                  پنل کاربری
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin"
-                  className="hover:bg-primary-200 rounded-lg p-4"
-                  onClick={() => handleDrawer(false)}
-                >
-                  پنل ادمین
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/cart"
-                  className="hover:bg-primary-200 rounded-lg p-4"
-                  onClick={() => handleDrawer(false)}
-                >
-                  سبد خرید
-                </Link>
-              </li>
-              <li>
-                {user ? (
-                  <span>{user.name}</span>
-                ) : (
-                  <Link className="block" href="/auth">
-                    ورود
-                  </Link>
-                )}
-              </li>
-            </ul>
-          </div>
-        </div>
-      )}
+      {showDrawer && <DrawerHeader handleDrawer={handleDrawer} user={user} />}
       <div className="container mx-auto hidden lg:flex">
-        <ul className="flex flex-1">
+        <ul className="flex items-center  flex-1">
           <li className="p-4 hover:bg-primary-100">
-            <Link href="/">خانه</Link>
+            <Link href="/">
+              <div>
+                <IoHomeOutline size={30} className="stroke-primary-900" />
+              </div>
+            </Link>
           </li>
           <li className="p-4 hover:bg-primary-100">
-            <Link href="/products">محصولات</Link>
+            <Link href="/products">
+              <span>محصولات</span>
+            </Link>
           </li>
           <li
             className="p-4 hover:bg-primary-100"
             onClick={() => router.refresh()}
           >
-            <Link href="/profile">پنل کاربری</Link>
+            <Link href="/profile">
+              <span>پنل کاربری</span>
+            </Link>
           </li>
           <li
             className="p-4 hover:bg-primary-100"
             onClick={() => router.refresh()}
           >
-            <Link href="/admin">پنل ادمین</Link>
+            <Link href="/admin" onClick={() => handleDrawer(false)}>
+              <span>پنل ادمین</span>
+            </Link>
           </li>
         </ul>
         <div className="flex items-center gap-4">

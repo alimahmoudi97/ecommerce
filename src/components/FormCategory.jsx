@@ -3,40 +3,40 @@ import Select from "react-select";
 
 function FormCategory({
   category,
-  handleSubmitForm,
-  selectedOption,
-  setSelectedOption,
-  handlerAddCategory,
-  options,
+  submitFormHandler,
+  selectedOptionType,
+  setSelectedOptionType,
+  addCategoryHandler,
+  optionTypes,
 }) {
   return (
-    <form onSubmit={handleSubmitForm}>
+    <form onSubmit={submitFormHandler}>
       <TextField
         lable="عنوان"
         name="title"
         value={category.title}
-        onChange={handlerAddCategory}
+        onChange={addCategoryHandler}
       />
       <TextField
         lable="عنوان انگلیسی"
         name="englishTitle"
         value={category.englishTitle}
-        onChange={handlerAddCategory}
+        onChange={addCategoryHandler}
       />
       <TextField
         lable="توضیحات"
         name="description"
         value={category.description}
-        onChange={handlerAddCategory}
+        onChange={addCategoryHandler}
       />
 
       <div className="flex flex-col gap-4">
         <label>نوع </label>
         <Select
-          defaultValue={selectedOption}
-          onChange={setSelectedOption}
+          defaultValue={selectedOptionType}
+          onChange={setSelectedOptionType}
           id="Type"
-          options={options}
+          options={optionTypes}
         />
       </div>
       <button type="submit" className="btn btn--primary">

@@ -9,13 +9,13 @@ function PageInfoProfile() {
   const [biography, setBiography] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
-
-  const { data, isPending, mutateAsync } = useUpdateProfile();
+  const { mutateAsync } = useUpdateProfile();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const user = await mutateAsync({ name, biography, email, phoneNumber });
+    await mutateAsync({ name, biography, email, phoneNumber });
   };
+
   return (
     <div className="container md:max-w-md">
       <h2 className="text-3xl font-bold mb-4">اطلاعات کاربری</h2>
