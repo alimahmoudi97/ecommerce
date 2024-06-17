@@ -11,6 +11,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineProduct } from "react-icons/ai";
 import { LuPanelRight } from "react-icons/lu";
 import { TbCategory } from "react-icons/tb";
+import { RiCoupon3Line } from "react-icons/ri";
 
 function Sidebar() {
   const route = useRouter();
@@ -120,7 +121,7 @@ function HamburgerMenu({ handleDrawer, handleLogout }) {
         </span>
       </div>
       <div className="mt-10">
-        <ul className="flex flex-col space-y-6 text-base w-full">
+        <ul className="flex flex-col space-y-6 text-base w-full overflow-auto">
           <li>
             <Link href="/">
               <div
