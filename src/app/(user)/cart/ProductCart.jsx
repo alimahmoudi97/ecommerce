@@ -33,7 +33,7 @@ function ProductCart({ product }) {
     });
   }, [cart]);
 
-  if (isPending) return <Loading />;
+  if (!profile) return <Loading />;
 
   return (
     <div className="border border-secondary-100 border-opacity-50 rounded-2xl col-span-1 p-2  shadow-lg flex flex-col gap-4 hover:scale-105 transition-all ease-in-out">
