@@ -3,7 +3,6 @@
 import { useUser } from "@/hooks/useUser";
 import CartItem from "./CartItem";
 import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
-
 import Loading from "@/components/Loading";
 import { useCreatePayment } from "@/hooks/usePayment";
 import toast from "react-hot-toast";

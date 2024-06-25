@@ -5,10 +5,10 @@ import {
   removeProduct,
   updateProduct,
 } from "@/services/productService";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useSuspenseQuery } from "@tanstack/react-query";
 
 export function useGetProducts() {
-  return useQuery({
+  return useSuspenseQuery({
     queryKey: ["products"],
     queryFn: getProducts,
     retry: false,

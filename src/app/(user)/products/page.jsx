@@ -15,16 +15,13 @@ async function Products({ searchParams }) {
   console.log("searchParams:", searchParams);
   const cookieStore = cookies();
   const strCookies = toStringCookies(cookieStore);
-  // TODO:move it on hook
   const productsPromis = getProducts(queryString.stringify(searchParams));
-
   const categoryPromise = getCategories();
 
   const [{ products }, { categories }] = await Promise.all([
     productsPromis,
     categoryPromise,
   ]);
-  // console.log(data);
 
   return (
     <div className="container mx-auto">
