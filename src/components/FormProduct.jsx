@@ -57,7 +57,7 @@ function FormProduct({
   product,
   handleSubmitForm,
   selectedCategory,
-  setSelectedCategory,
+  setSelectedCategory="",
   selectedTags,
   setSelectedTags,
   handlerAddProduct,
@@ -65,7 +65,7 @@ function FormProduct({
   isLoading,
 }) {
   return (
-    <form onSubmit={handleSubmitForm}>
+    <form onSubmit={handleSubmitForm} >
       {productFormItems.map((item) => (
         <TextField
           key={item.id}
@@ -87,7 +87,7 @@ function FormProduct({
       <div className="flex flex-col gap-4">
         <label>دسته بندی</label>
         <Select
-          id="catergory"
+          id="category"
           defaultValue={selectedCategory}
           onChange={setSelectedCategory}
           getOptionLabel={(option) => option.title}

@@ -5,7 +5,7 @@ import Loading from "@/components/Loading";
 import { useCategory } from "@/hooks/useCategory";
 import { useAddProduct } from "@/hooks/useProduct";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { FiArrowLeft } from "react-icons/fi";
 
@@ -32,7 +32,7 @@ function AddPage() {
 
   const handlerAddProduct = (e) => {
     setProduct({
-      ...productInfo,
+      ...product,
       [e.target.name]: e.target.value,
     });
   };
@@ -45,9 +45,9 @@ function AddPage() {
     e.preventDefault();
     try {
       const res = await mutateAsync({
-        ...productInfo,
+        ...product,
         tags: selectedTags,
-        category: selectedCategory.value,
+        category: selectedCategory._id,
       });
       toast.success(res.message);
       router.push("/admin/products");
@@ -56,13 +56,17 @@ function AddPage() {
     }
   };
 
+  useEffect(()=>{
+    console.log(categories);
+  },[])
+
   if (isLoading) return <Loading />;
 
   return (
     <div className="container max-w-md">
       <div className="flex justify-between">
         <h1 className="text-3xl mb-4">اضافه کردن محصول</h1>
-        <FiArrowLeft onClick={handleBack} size={45} />
+        <FiArrowLeft onClick={handleBack} size={45} className="cursor-pointer"/>
       </div>
       <FormProduct
         product={product}

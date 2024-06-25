@@ -6,6 +6,7 @@ import { useGetProducts } from "@/hooks/useProduct";
 import Loading from "@/components/Loading";
 import Link from "next/link";
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { Suspense } from "react";
 
 function ProductPage() {
   const { data, isLoading } = useGetProducts();
