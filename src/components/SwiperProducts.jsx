@@ -17,6 +17,8 @@ import Loading from "./Loading";
 import { Suspense, useEffect } from "react";
 import SwiperProductsCart from "./SwiperProductsCart";
 import Link from "next/link";
+import SkeltonLoading from "@/app/(user)/products/SkeltonLoading";
+import SwiperProductsSkelton from "./skelton/swiper/SwiperProductsSkelton";
 
 const breakpoints = {
   0: {
@@ -45,14 +47,14 @@ const breakpoints = {
 function SwiperProducts() {
   const { data, isLoading } = useGetProducts();
 
-  if (isLoading) return <Skeleton className="h-40" />;
+  if (isLoading) return <SwiperProductsSkelton />;
 
   return (
-    <section className="w-full bg-green-100 p-4 rounded-xl">
+    <section className="w-full bg-rose-500 p-4 rounded-xl">
       <Swiper spaceBetween={5} slidesPerView={1} breakpoints={breakpoints}>
         <>
           <SwiperSlide className="flex flex-col !h-auto">
-            <div className="bg-red-400 flex flex-col h-full rounded-r-3xl">
+            <div className="bg-rose-700 flex flex-col h-full rounded-r-3xl">
               <Image src={amzing} alt="" className=" w-auto h-full" />
             </div>
           </SwiperSlide>

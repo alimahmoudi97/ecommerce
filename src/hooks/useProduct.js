@@ -8,7 +8,7 @@ import {
 import { useMutation, useQuery, useSuspenseQuery } from "@tanstack/react-query";
 
 export function useGetProducts() {
-  return useSuspenseQuery({
+  return useQuery({
     queryKey: ["products"],
     queryFn: getProducts,
     retry: false,

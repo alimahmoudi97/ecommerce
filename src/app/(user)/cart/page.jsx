@@ -6,6 +6,9 @@ import { toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import Loading from "@/components/Loading";
 import { useCreatePayment } from "@/hooks/usePayment";
 import toast from "react-hot-toast";
+import { Suspense } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 function CartPage() {
   const { profile, isLoading } = useUser();
@@ -21,13 +24,15 @@ function CartPage() {
     }
   };
 
-  if (isLoading) return <Loading width="80" height="80" />;
+  // if (isLoading) return <Skeleton count={5} />;
 
   return (
     <div className="container mx-auto mt-8">
       <div className="grid grid-cols-4 gap-2">
         <div className="col-span-4 lg:col-span-3 space-y-2">
-          {profile.cart.productDetail.length === 0 ? (
+          {isLoading ? (
+            <Skeleton className="h-20" />
+          ) : profile.cart.productDetail.length === 0 ? (
             <p className="text-center text-xl">سبد محصولات خالی است</p>
           ) : (
             profile.cart.productDetail.map((pro) => {
@@ -35,38 +40,49 @@ function CartPage() {
             })
           )}
         </div>
-        <div className="col-span-4 lg:col-span-1">
-          <div className="gap-1  flex flex-col lg:gap-4 p-4 border rounded-lg">
-            <h2 className="font-bold text-lg">اطلاعات پرداخت</h2>
-
-            <div className="flex justify-between">
-              <span>جمع کل</span>
-              <span>
-                {toPersianNumbersWithComma(
-                  profile.cart.payDetail.totalGrossPrice
-                )}
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span> میزان تخفیف</span>
-              <span>
-                {toPersianNumbersWithComma(profile.cart.payDetail.totalPrice)}
-              </span>
-            </div>
-            <div className="flex justify-between">
-              <span>مبلغ قابل پرداخت</span>
-
-              <span>
-                {toPersianNumbersWithComma(
-                  profile.cart.payDetail.totalOffAmount
-                )}
-              </span>
-            </div>
-            <button className="btn btn--primary" onClick={handlePayment}>
-              {isLoading || isError ? <Loading /> : "ثبت سفارش"}
-            </button>
+        {isLoading ? (
+          <div className=" border rounded-lg p-4">
+            <Skeleton className="h-12" />
+            <Skeleton className="h-12" />
+            <Skeleton className="h-12" />
+            <Skeleton className="h-12" />
           </div>
-        </div>
+        ) : (
+          <div className="col-span-4 lg:col-span-1">
+            <div className="gap-1  flex flex-col lg:gap-4 p-4 border rounded-lg">
+              <h2 className="font-bold text-lg">اطلاعات پرداخت</h2>
+
+              <div className="flex justify-between">
+                <span>جمع کل</span>
+
+                <span>
+                  {toPersianNumbersWithComma(
+                    profile.cart.payDetail.totalGrossPrice
+                  )}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span> میزان تخفیف</span>
+
+                <span>
+                  {toPersianNumbersWithComma(profile.cart.payDetail.totalPrice)}
+                </span>
+              </div>
+              <div className="flex justify-between">
+                <span>مبلغ قابل پرداخت</span>
+
+                <span>
+                  {toPersianNumbersWithComma(
+                    profile.cart.payDetail.totalOffAmount
+                  )}
+                </span>
+              </div>
+              <button className="btn btn--primary" onClick={handlePayment}>
+                {isLoading || isError ? <Loading /> : "ثبت سفارش"}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
